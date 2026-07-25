@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonia Graff · Veille métier et technologique</title>
+<style>
+:root{
+  --petrol:#0E5A66; --dark:#0A3D46; --tint:#E8F2F3; --neutral:#F5F7F7;
+  --sep:#DCE6E7; --ink:#3A464C; --grey:#6E7A80;
+  --data:#3FA0AE; --coral:#C25438; --vert:#7BA05B; --violet:#6B6FA8; --sable:#B08D57;
+  --font:'Corbel','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--font);background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--petrol);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+nav{background:var(--dark);height:56px;position:sticky;top:0;z-index:60}
+nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{color:#fff;font-size:.96rem;font-weight:700;letter-spacing:.06em}
+.nav-logo span{color:#8FBEC4;font-weight:400}
+.nav-links{display:flex;gap:19px}
+.nav-links a{color:rgba(255,255,255,.72);font-size:.78rem;text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.nav-links a:hover,.nav-links a.on{color:#fff;border-color:#8FBEC4}
+
+.hero{background:var(--dark);color:#fff;padding:46px 0 42px}
+.eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#8FBEC4;margin-bottom:12px}
+.hero h1{font-size:1.95rem;line-height:1.24;font-weight:700;margin-bottom:12px;max-width:880px}
+.hero p{font-size:.95rem;color:#C3D8DB;max-width:800px;margin-bottom:26px}
+.steps{display:flex;flex-wrap:wrap;border:1px solid rgba(255,255,255,.18);border-radius:3px;overflow:hidden}
+.steps div{flex:1;min-width:140px;padding:13px 15px;border-right:1px solid rgba(255,255,255,.18)}
+.steps div:last-child{border-right:0}
+.steps b{display:block;font-size:.66rem;letter-spacing:.16em;color:#8FBEC4;margin-bottom:4px}
+.steps span{font-size:.85rem;color:#fff}
+
+section{padding:48px 0}
+.alt{background:var(--neutral)}
+.head{display:grid;grid-template-columns:1fr 1.15fr;gap:34px;align-items:start;margin-bottom:26px}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:8px}
+.sec-title{font-size:1.5rem;font-weight:700;color:var(--dark);line-height:1.24}
+.sec-sub{font-size:.9rem;color:var(--grey);padding-top:22px}
+
+.sys{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sy{background:#fff;border:1px solid var(--sep);border-radius:3px;padding:18px 17px}
+.sy .k{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.sy .k i{width:24px;height:24px;border-radius:50%;background:var(--petrol);color:#fff;font-style:normal;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.sy .k b{font-size:1rem;color:var(--dark)}
+.sy p{font-size:.81rem;color:var(--grey);margin-bottom:9px}
+.sy ul{list-style:none}
+.sy li{font-size:.78rem;padding:6px 0;border-top:1px solid var(--sep)}
+.sy li strong{color:var(--petrol);font-weight:700}
+
+.rt-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.vtl{position:relative;padding-left:34px}
+.vtl::before{content:'';position:absolute;left:11px;top:10px;bottom:26px;width:2px;background:var(--sep)}
+.vi{position:relative;padding-bottom:22px}
+.vi:last-child{padding-bottom:0}
+.vi::before{content:'';position:absolute;left:-34px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--petrol)}
+.vi b{display:block;font-size:.95rem;color:var(--dark)}
+.vi em{display:block;font-style:normal;font-size:.71rem;letter-spacing:.1em;color:var(--petrol);font-weight:700;margin:2px 0 4px}
+.vi p{font-size:.83rem;color:var(--grey)}
+.rt-side{background:var(--tint);border-radius:3px;padding:22px 24px}
+.rt-side h3{font-size:1rem;color:var(--dark);margin-bottom:8px}
+.rt-side p{font-size:.85rem;margin-bottom:14px}
+.rt-side a{display:inline-block;background:var(--petrol);color:#fff;text-decoration:none;font-size:.83rem;font-weight:700;padding:10px 18px;border-radius:3px}
+.rt-side a:hover{background:var(--dark)}
+
+.thg{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.th{border-radius:3px;padding:18px 16px;color:#fff;display:flex;flex-direction:column}
+.th svg{width:34px;height:34px;margin-bottom:11px;opacity:.92}
+.th>b{display:block;font-size:.95rem;line-height:1.3;margin-bottom:8px}
+.th>p{font-size:.81rem;opacity:.92;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.3);margin-bottom:12px}
+.th ul{list-style:none;margin-bottom:auto}
+.th li{font-size:.78rem;padding:4px 0 4px 14px;position:relative;opacity:.95;line-height:1.35}
+.th li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.75}
+.th li strong{font-weight:700}
+.th .pj{margin-top:12px;padding-top:9px;border-top:1px solid rgba(255,255,255,.3);font-size:.71rem;letter-spacing:.05em;opacity:.9}
+.t1{background:var(--data)}.t2{background:var(--coral)}.t3{background:var(--petrol)}
+.t4{background:var(--vert)}.t5{background:var(--violet)}
+
+.som{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.so{background:#fff;border:1px solid var(--sep);border-top:3px solid var(--petrol);border-radius:3px;padding:15px 18px;text-decoration:none;display:block}
+.so:hover{background:var(--tint)}
+.so b{display:block;font-size:.95rem;color:var(--dark);margin-bottom:2px}
+.so span{font-size:.78rem;color:var(--grey)}
+.so.s1{border-top-color:var(--data)}.so.s2{border-top-color:var(--petrol)}
+.so.s3{border-top-color:var(--violet)}.so.s4{border-top-color:var(--vert)}
+
+.fiche{border:1px solid var(--sep);border-radius:3px;margin-bottom:16px;background:#fff;overflow:hidden}
+.f-head{display:flex;align-items:center;gap:14px;padding:12px 18px;color:#fff}
+.f-head .tag{font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 9px;border-radius:2px;white-space:nowrap}
+.f-head h3{font-size:1rem;font-weight:700;line-height:1.3}
+.f-body{display:grid;grid-template-columns:1fr 1.15fr 1fr}
+.col{padding:15px 18px;border-right:1px solid var(--sep)}
+.col:last-child{border-right:0}
+.col.mid{background:var(--neutral)}
+.blk{margin-bottom:13px}
+.blk:last-child{margin-bottom:0}
+.blk>b{display:block;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--grey);margin-bottom:4px}
+.blk p{font-size:.83rem}
+.blk p.q{font-weight:700;color:var(--dark)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.s{font-size:.76rem;background:#fff;border:1px solid var(--sep);border-radius:2px;padding:4px 9px}
+.auto{background:#fff;border-left:3px solid var(--petrol);padding:9px 12px;font-size:.81rem}
+.dec{background:var(--tint);border-left:3px solid var(--petrol);padding:11px 13px;font-size:.83rem;color:var(--dark)}
+.next{font-size:.8rem;color:var(--grey)}
+.next b{color:var(--ink)}
+.h1{background:var(--data)}.h2{background:var(--petrol)}.h3{background:var(--violet)}.h4{background:var(--vert)}
+
+.tbl{border:1px solid var(--sep);border-radius:3px;overflow-x:auto;background:#fff}
+table.ch{width:100%;min-width:820px;border-collapse:collapse;font-size:.82rem}
+table.ch thead th{background:var(--dark);color:#fff;text-align:left;padding:10px 14px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+table.ch td{padding:11px 14px;border-bottom:1px solid var(--sep);vertical-align:top}
+table.ch tr:last-child td{border-bottom:0}
+table.ch tr:nth-child(even){background:var(--tint)}
+td.et{white-space:nowrap;font-weight:700;color:var(--petrol);width:17%}
+td.pr{color:var(--grey);width:24%}
+
+.maj{display:inline-block;background:var(--tint);color:var(--petrol);font-size:.76rem;font-weight:700;padding:5px 13px;border-radius:12px;margin-bottom:16px}
+.sd li b{font-weight:700;color:var(--dark)}
+.sd li span{display:block}
+.legende{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:20px;font-size:.79rem;color:var(--grey)}
+.legende span{display:flex;align-items:center;gap:7px}
+.dotc{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.d-ok{background:var(--vert)}.d-po{background:var(--sable)}.d-td{background:#C3CDD0}
+.srcs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sd{background:#fff;border:1px solid var(--sep);border-top:3px solid var(--data);border-radius:3px;padding:16px 18px}
+.sd>h3{font-size:.92rem;color:var(--dark);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--sep)}
+.sd h4{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:12px 0 4px;font-weight:700}
+.sd ul{list-style:none}
+.sd li{font-size:.79rem;padding:3px 0;display:flex;gap:8px;align-items:baseline}
+.sd li em{font-style:normal;color:var(--grey);font-size:.72rem}
+
+.ap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.apc{background:#fff;border:1px solid var(--sep);border-left:3px solid var(--data);border-radius:3px;padding:15px 18px}
+.apc b{display:block;font-size:.9rem;color:var(--dark);margin-bottom:3px}
+.apc span{font-size:.81rem;color:var(--grey)}
+.apc:nth-child(2){border-left-color:var(--coral)}
+.apc:nth-child(3){border-left-color:var(--vert)}
+.apc:nth-child(4){border-left-color:var(--petrol)}
+.apc:nth-child(5){border-left-color:var(--violet)}
+.apc:nth-child(6){border-left-color:var(--sable)}
+
+footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:20px;font-size:.75rem}
+
+@media(max-width:1180px){
+  .sys,.thg{grid-template-columns:repeat(3,1fr)}
+  .srcs{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:940px){
+  .head,.rt-wrap,.som,.ap{grid-template-columns:1fr}
+  .sec-sub{padding-top:0}
+  .f-body{grid-template-columns:1fr}
+  .col{border-right:0;border-bottom:1px solid var(--sep)}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .sys,.thg,.srcs{grid-template-columns:1fr}
+  .hero h1{font-size:1.45rem}
+  section{padding:36px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-links">
+      <a href="Page_Portfolio_Accueil.html">Accueil</a>
+      <a href="Page_Portfolio_Projets.html">Projets</a>
+      <a href="#methode">Ma méthode</a>
+      <a href="#domaines">Mes domaines</a>
+      <a href="#cas" class="on">Quatre cas</a>
+      <a href="#sources">Mes sources</a>
+      <a href="Page_Portfolio_Veille_Organisation.html">Mon organisation</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Veille métier et technologique</div>
+    <h1>Une veille orientée décision</h1>
+    <p>Ma veille porte sur les évolutions de la data, de la Business Intelligence, de l'automatisation et de la fonction finance. Guidée par les problématiques rencontrées dans mes projets, elle me permet d'évaluer de nouvelles pratiques et de les transformer en choix testés, documentés et réutilisables.</p>
+    <div class="steps">
+      <div><b>1 · CADRER</b><span>Un problème devient une question</span></div>
+      <div><b>2 · CAPTER</b><span>Sources primaires, abonnements utiles</span></div>
+      <div><b>3 · QUALIFIER</b><span>Fiabilité, applicabilité, pérennité</span></div>
+      <div><b>4 · EXPÉRIMENTER</b><span>Deux options, un cas réel</span></div>
+      <div><b>5 · CAPITALISER</b><span>Décision écrite, preuves conservées</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="methode">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Comment ça marche</div>
+        <h2 class="sec-title">Mon système de veille en cinq temps</h2></div>
+      <p class="sec-sub">Un outil, une méthode statistique ou un cadre réglementaire : la démarche ne change pas. Ce qui change, c'est la profondeur du test.</p>
+    </div>
+
+    <div class="sys">
+      <div class="sy">
+        <div class="k"><i>1</i><b>Cadrer</b></div>
+        <p>Chaque veille débute par une problématique précisément formulée.</p>
+        <ul>
+          <li>Le déclencheur est une <strong>problématique métier</strong> ou un besoin de projet</li>
+          <li>La question tient en une phrase</li>
+          <li>Elle est rattachée à un domaine</li>
+        </ul>
+      </div>
+      <div class="sy">
+        <div class="k"><i>2</i><b>Capter</b></div>
+        <p>Je combine une captation automatisée et des recherches ciblées.</p>
+        <ul>
+          <li><strong>Alertes de version</strong> sur les bibliothèques utilisées</li>
+          <li><strong>Lettres d'information</strong> rangées hors de la boîte de réception</li>
+          <li><strong>Agrégateur</strong> — un dossier par domaine</li>
+          <li><strong>Recherche ciblée</strong> déclenchée par un projet</li>
+        </ul>
+      </div>
+      <div class="sy">
+        <div class="k"><i>3</i><b>Qualifier</b></div>
+        <p>Chaque information est évaluée selon son utilité, son applicabilité et son coût d'adoption.</p>
+        <ul>
+          <li>Répond-elle à une problématique identifiée ?</li>
+          <li>Est-elle maintenable en entreprise ?</li>
+          <li>Une source communautaire ouvre une piste, elle ne la valide pas</li>
+        </ul>
+      </div>
+      <div class="sy">
+        <div class="k"><i>4</i><b>Expérimenter</b></div>
+        <p>Aucune solution n'est retenue sans confrontation à un cas d'usage réel.</p>
+        <ul>
+          <li>Sur <strong>mes</strong> données, pas sur les exemples de la documentation</li>
+          <li>Deux options minimum, même protocole</li>
+          <li><strong>Critères écrits avant</strong> le test</li>
+        </ul>
+      </div>
+      <div class="sy">
+        <div class="k"><i>5</i><b>Capitaliser</b></div>
+        <p>La veille est capitalisée sous forme de décisions, de méthodes ou de règles réutilisables.</p>
+        <ul>
+          <li><strong>Fiche de décision</strong> par sujet approfondi</li>
+          <li><strong>Registre</strong> — sources, sujets, décisions</li>
+          <li>Note à l'équipe quand le sujet la concerne</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Mon rythme</div>
+        <h2 class="sec-title">Ma routine de veille</h2></div>
+      <p class="sec-sub">En cours de semaine, je ne consulte pas ma veille. Ce que je repère est déposé dans son canal et traité au moment prévu — sauf si l'information est directement nécessaire à un projet en cours.</p>
+    </div>
+
+    <div class="rt-wrap">
+      <div class="vtl">
+        <div class="vi"><b>Chaque semaine</b><em>20 À 30 MINUTES</em>
+          <p>Je trie ce qui est tombé dans mes canaux et j'élimine immédiatement le bruit.</p></div>
+        <div class="vi"><b>Chaque mois</b><em>1 HEURE</em>
+          <p>Je prends un seul sujet et je le creuse réellement : recherche, comparaison, test éventuel.</p></div>
+        <div class="vi"><b>Chaque trimestre</b><em>30 MINUTES</em>
+          <p>Je retire les sources inutiles, redondantes ou jamais consultées.</p></div>
+        <div class="vi"><b>À chaque projet</b><em>SI BESOIN</em>
+          <p>Je déclenche une recherche ciblée dès qu'un livrable fait apparaître une question nouvelle.</p></div>
+      </div>
+
+      <div class="rt-side">
+        <h3>Cinq, trois, un</h3>
+        <p>Cinq domaines de veille au maximum. Trois sources récurrentes par domaine. Un seul sujet approfondi par mois. Soit une quinzaine de sources actives — c'est peu, et c'est volontaire : une veille modeste mais réellement tenue vaut mieux qu'une liste impossible à démontrer.</p>
+        <a href="Page_Portfolio_Veille_Organisation.html">Le détail pratique : comment je l'organise &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="domaines">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Mes domaines</div>
+        <h2 class="sec-title">Cinq domaines, et les sujets que j'y suis</h2></div>
+      <p class="sec-sub">Chaque domaine répond à un besoin précis de mon métier. Les sujets listés sont ceux que j'y suis réellement : certains sont nés d'une problématique rencontrée sur un livrable, d'autres de l'évolution de la fonction finance. Les sujets en gras sont détaillés en cas concrets plus bas.</p>
+    </div>
+
+    <div class="thg">
+      <div class="th t1">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="4" y="22" width="6" height="13"/><rect x="13" y="14" width="6" height="21"/>
+          <rect x="22" y="26" width="6" height="9"/><circle cx="30" cy="11" r="7"/><line x1="35" y1="16" x2="39" y2="21"/>
+        </svg>
+        <b>Analyse et qualité des données</b>
+        <p>Explorer, contrôler et fiabiliser les données utilisées pour la décision.</p>
+        <ul>
+          <li><strong>Contrôles qualité rejouables</strong></li>
+          <li>Détection d'anomalies dans leur contexte</li>
+          <li>Analyse exploratoire accélérée</li>
+          <li>Traçabilité des corrections</li>
+          <li>Sobriété des moteurs de traitement</li>
+          <li>Documentation d'un jeu de données</li>
+        </ul>
+        <div class="pj">Projets 5 et 10</div>
+      </div>
+      <div class="th t2">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="4,28 13,18 21,24 36,7"/><circle cx="13" cy="18" r="2.5" fill="currentColor" stroke="none"/>
+          <circle cx="21" cy="24" r="2.5" fill="currentColor" stroke="none"/><line x1="4" y1="35" x2="36" y2="35"/>
+        </svg>
+        <b>Visualisation et communication décisionnelle</b>
+        <p>Rendre les résultats lisibles, accessibles et orientés action.</p>
+        <ul>
+          <li>Choix du visuel selon le message</li>
+          <li>Conventions de reporting financier</li>
+          <li>Accessibilité des restitutions</li>
+          <li>Titre qui énonce le constat</li>
+          <li>Commentaire écrit et lecture autonome</li>
+          <li>Charte graphique de reporting</li>
+        </ul>
+        <div class="pj">Projets 1, 6 et 8</div>
+      </div>
+      <div class="th t3">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="4" y="6" width="32" height="28" rx="2"/><line x1="4" y1="14" x2="36" y2="14"/>
+          <line x1="16" y1="14" x2="16" y2="34"/><rect x="20" y="19" width="11" height="4"/><rect x="20" y="26" width="7" height="4"/>
+        </svg>
+        <b>Business Intelligence et gouvernance</b>
+        <p>Concevoir des modèles performants, sécurisés et adaptés aux usages.</p>
+        <ul>
+          <li><strong>DAX ou transformation : où placer un calcul</strong></li>
+          <li>Performance et temps de rafraîchissement</li>
+          <li>Sécurité au niveau des lignes</li>
+          <li>Modélisation en étoile</li>
+          <li>Tableau ou Power BI selon l'usage</li>
+          <li>Documentation et reprise d'un modèle</li>
+        </ul>
+        <div class="pj">Projets 6, 8 et 9</div>
+      </div>
+      <div class="th t4">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="7" width="12" height="9" rx="1.5"/><rect x="25" y="24" width="12" height="9" rx="1.5"/>
+          <path d="M15 11.5h9a4 4 0 0 1 4 4v8.5"/><polyline points="24,20 28,24 32,20"/>
+          <circle cx="9" cy="30" r="5"/><line x1="9" y1="25" x2="9" y2="23"/><line x1="9" y1="35" x2="9" y2="37"/>
+        </svg>
+        <b>Automatisation des processus de gestion</b>
+        <p>Réduire les tâches répétitives tout en assurant leur reprise.</p>
+        <ul>
+          <li><strong>Reporting commercial et mail de synthèse</strong></li>
+          <li>Comparaisons temporelles standardisées</li>
+          <li>Flux d'alerte et diffusion automatisée</li>
+          <li>Architecture d'alimentation d'un rapport</li>
+          <li>Automatiser une clôture faite sous tableur</li>
+          <li>Contrôles de cohérence automatisés</li>
+        </ul>
+        <div class="pj">Projets 5 et 8 · métier</div>
+      </div>
+      <div class="th t5">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="20" cy="9" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="32" cy="28" r="4"/><circle cx="20" cy="21" r="3.5"/>
+          <line x1="20" y1="13" x2="20" y2="17.5"/><line x1="17" y1="23.5" x2="11" y2="26"/><line x1="23" y1="23.5" x2="29" y2="26"/>
+        </svg>
+        <b>IA appliquée à la fonction finance</b>
+        <p>Évaluer les usages utiles, les limites et les contrôles nécessaires.</p>
+        <ul>
+          <li><strong>Fiabilité des données avec un assistant IA</strong></li>
+          <li>Agents sur les processus financiers</li>
+          <li>Analyse d'écarts assistée</li>
+          <li>Commentaire de gestion généré puis relu</li>
+          <li>Traçabilité de l'usage de l'IA</li>
+          <li>Cadre réglementaire de l'IA</li>
+        </ul>
+        <div class="pj">Projets 3 et 10 · métier</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cas" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Comment je l'automatise</div>
+        <h2 class="sec-title">Quatre cas concrets de veille appliquée</h2></div>
+      <p class="sec-sub">Même lecture pour les quatre cas : à gauche le besoin et la question, au centre les sources et la mise en œuvre, à droite la décision retenue et la piste suivante.</p>
+    </div>
+
+    <div class="som">
+      <a class="so s1" href="#cas1"><b>Contrôles rejouables</b><span>Analyse et qualité des données · Projet 10</span></a>
+      <a class="so s2" href="#cas2"><b>DAX ou transformation</b><span>Business Intelligence et performance · Projets 6 et 8</span></a>
+      <a class="so s3" href="#cas3"><b>Assistant IA et données commerciales</b><span>IA appliquée à la finance · cas d'usage métier</span></a>
+      <a class="so s4" href="#cas4"><b>Reporting commercial automatisé</b><span>Comparaisons temporelles et mail après relecture</span></a>
+    </div>
+
+    <div class="fiche" id="cas1">
+      <div class="f-head h1"><span class="tag">Analyse et qualité des données · Projet 10</span>
+        <h3>Comment rendre les règles de contrôle rejouables ?</h3></div>
+      <div class="f-body">
+        <div class="col">
+          <div class="blk"><b>Le besoin</b><p>Mes règles qualité étaient écrites à la main et dispersées dans le notebook : efficaces une fois, mais difficiles à relire, à maintenir et à rejouer sur un autre jeu de données.</p></div>
+          <div class="blk"><b>Ma question</b><p class="q">Comment déclarer les règles une seule fois et les rejouer comme un test sur un nouveau jeu ?</p></div>
+        </div>
+        <div class="col mid">
+          <div class="blk"><b>Où je regarde</b>
+            <div class="chips">
+              <span class="s">Pandera</span><span class="s">Great Expectations</span>
+              <span class="s">Documentation officielle</span><span class="s">GitHub Releases</span>
+              <span class="s">Articles comparatifs</span>
+            </div></div>
+          <div class="blk"><b>Comment je l'automatise</b><div class="auto">Je compare les deux bibliothèques sur les mêmes règles, les mêmes données et les mêmes critères : lisibilité, intégration au code, dépendances et capacité à être repris.</div></div>
+        </div>
+        <div class="col">
+          <div class="blk"><b>Ce que j'ai décidé</b><div class="dec">Pandera est retenu dans ce contexte : solution plus légère et directement intégrable au code existant. Les contrôles signalent les anomalies ; la correction reste une décision humaine.</div></div>
+          <div class="blk"><p class="next"><b>Pour la suite :</b> suivre les versions et exécuter les règles à chaque mise à jour des fichiers.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fiche" id="cas2">
+      <div class="f-head h2"><span class="tag">Business Intelligence et gouvernance · Projets 6 et 8</span>
+        <h3>Où placer un calcul pour qu'un rapport reste rapide ?</h3></div>
+      <div class="f-body">
+        <div class="col">
+          <div class="blk"><b>Le besoin</b><p>17 pages et 52 pays sur un rapport ; 27 pages et 145 mesures sur un autre. À partir d'un certain volume, l'endroit où l'on pose un calcul influence la vitesse, la maintenance et la lisibilité du modèle.</p></div>
+          <div class="blk"><b>Ma question</b><p class="q">Colonne calculée en amont dans la transformation, ou mesure DAX : quel choix est le plus pertinent pour la performance et la clarté du modèle ?</p></div>
+        </div>
+        <div class="col mid">
+          <div class="blk"><b>Où je regarde</b>
+            <div class="chips">
+              <span class="s">Microsoft Learn</span><span class="s">DAX Guide</span><span class="s">SQLBI</span>
+              <span class="s">Chris Webb</span><span class="s">Guy in a Cube</span>
+            </div></div>
+          <div class="blk"><b>Comment je l'automatise</b><div class="auto">Je confronte les recommandations des experts à mon modèle réel : poids des tables, nombre de mesures, ambiguïté des relations et impact sur le temps de rafraîchissement.</div></div>
+        </div>
+        <div class="col">
+          <div class="blk"><b>Ce que j'ai décidé</b><div class="dec">Les colonnes calculées sont posées côté transformation lorsqu'elles décrivent une donnée stable ; les mesures DAX restent réservées au calcul contextuel. Le modèle est simplifié et documenté page par page.</div></div>
+          <div class="blk"><p class="next"><b>Pour la suite :</b> mesurer systématiquement la taille des colonnes et le temps de rafraîchissement avant et après les ajustements.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fiche" id="cas3">
+      <div class="f-head h3"><span class="tag">IA appliquée à la finance · cas d'usage métier</span>
+        <h3>Comment assurer la fiabilité des données si j'utilise un assistant IA pour préparer un tableau de bord des ventes ?</h3></div>
+      <div class="f-body">
+        <div class="col">
+          <div class="blk"><b>Le besoin</b><p>Un assistant IA peut aider à explorer un jeu commercial, rédiger des hypothèses d'analyse ou proposer une structure de tableau de bord. Mais il peut aussi inventer des champs, mal interpréter la donnée et faire sortir des informations sensibles.</p></div>
+          <div class="blk"><b>Ma question</b><p class="q">Comment utiliser un assistant IA sans compromettre la confidentialité ni la fiabilité des résultats ?</p></div>
+        </div>
+        <div class="col mid">
+          <div class="blk"><b>Où je regarde</b>
+            <div class="chips">
+              <span class="s">Politique de sécurité des données</span><span class="s">Bonnes pratiques IA</span>
+              <span class="s">Documentation éditeur</span><span class="s">Réglementation et RGPD</span>
+            </div></div>
+          <div class="blk"><b>Comment je sécurise l'usage</b><div class="auto">Je n'envoie jamais le jeu commercial brut. Je fournis uniquement une structure de colonnes, un dictionnaire de données ou un extrait anonymisé. L'assistant peut proposer des contrôles, des formules ou une trame d'analyse ; chaque proposition est ensuite rejouée et validée sur les données sources dans Power BI ou Python.</div></div>
+        </div>
+        <div class="col">
+          <div class="blk"><b>Ce que j'ai décidé</b><div class="dec"><b>Trois règles.</b> <b>1)</b> Ce qui entre : pas de données identifiantes ni sensibles. <b>2)</b> Ce qui sort : aucune formule, aucun calcul et aucune interprétation ne sont repris sans vérification sur les données sources. <b>3)</b> Ce qui reste : je documente ce que l'IA a proposé et ce que j'ai réellement retenu.</div></div>
+          <div class="blk"><p class="next"><b>Pour la suite :</b> formaliser une check-list « IA au travail » avant toute utilisation sur des données commerciales.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fiche" id="cas4">
+      <div class="f-head h4"><span class="tag">Automatisation des processus de gestion · reporting commercial</span>
+        <h3>Comment standardiser l'analyse des ventes et préparer automatiquement un mail de synthèse ?</h3></div>
+      <div class="f-body">
+        <div class="col">
+          <div class="blk"><b>Le besoin</b><p>Chaque semaine et chaque mois, le reporting commercial doit comparer les ventes de la période en cours à une période de référence : semaine en cours contre même semaine de l'année précédente, mois en cours contre même mois de l'année précédente, ou toute autre comparaison sélectionnée. Aujourd'hui, l'analyse des écarts et la rédaction du commentaire sont reprises manuellement.</p></div>
+          <div class="blk"><b>Ma question</b><p class="q">Comment automatiser une analyse standardisée des écarts de ventes, tout en conservant une relecture humaine avant l'envoi du mail ?</p></div>
+        </div>
+        <div class="col mid">
+          <div class="blk"><b>Où je regarde</b>
+            <div class="chips">
+              <span class="s">Microsoft Learn — fonctions temporelles DAX</span>
+              <span class="s">SQLBI — comparaison de périodes</span>
+              <span class="s">Power BI — paramètres et actualisation</span>
+              <span class="s">Power Automate — approbation et mail</span>
+              <span class="s">Documentation Outlook</span>
+            </div></div>
+          <div class="blk"><b>Comment je l'automatise</b><div class="auto">Je structure une table de dates et des mesures réutilisables pour calculer le chiffre d'affaires de la période sélectionnée, celui de la période de comparaison, l'écart en valeur et en pourcentage. L'analyse est déclinée automatiquement par pays, région, famille et produit, avec classement des principales hausses et baisses. Après actualisation, Power Automate prépare une synthèse et un brouillon de mail ; le contrôleur relit, ajuste le commentaire puis valide l'envoi.</div></div>
+        </div>
+        <div class="col">
+          <div class="blk"><b>Ce que j'ai décidé</b><div class="dec">Mettre en place un modèle d'analyse unique, piloté par un sélecteur de comparaison : semaine N contre semaine N-1 ou N-52, mois en cours contre mois précédent ou même mois N-1, budget, ou toute période de référence définie. Le mail reprend les indicateurs clés, les principaux écarts favorables et défavorables et le lien vers le rapport. <b>L'analyse est générée automatiquement, mais elle n'est jamais envoyée sans relecture.</b></div></div>
+          <div class="blk"><p class="next"><b>Pour approfondir :</b> enrichir progressivement le commentaire avec les facteurs explicatifs disponibles — effet volume, prix, mix et change — puis tester le dispositif sur un pays ou une famille de produits avant déploiement global.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tracabilite">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Preuve · Projet 10</div>
+        <h2 class="sec-title">Traçabilité d'une décision, de la question à la règle de travail</h2></div>
+      <p class="sec-sub">Le premier cas repris étape par étape, avec la trace conservée à chacune. C'est cet enchaînement, plus que la liste des sources, qui rend une décision défendable devant un tiers.</p>
+    </div>
+
+    <div class="tbl">
+      <table class="ch">
+        <thead><tr><th>Étape</th><th>Ce qui s'est passé</th><th>Trace conservée</th></tr></thead>
+        <tbody>
+          <tr><td class="et">1 · Besoin détecté</td>
+            <td>Les règles de qualité étaient dispersées dans le notebook. La question n'est plus « est-ce que ça marche » mais « est-ce que quelqu'un d'autre pourrait le reprendre ».</td>
+            <td class="pr">Extrait du notebook avant refonte</td></tr>
+          <tr><td class="et">2 · Recherche</td>
+            <td>Documentation officielle des deux bibliothèques, dépôts de code, deux articles comparatifs de praticiens.</td>
+            <td class="pr">Liens et dates dans le registre</td></tr>
+          <tr><td class="et">3 · Critères posés</td>
+            <td>Avant tout test : empreinte technique, lisibilité par un non-développeur, capacité à écrire des règles croisées, reproductibilité, sobriété au regard du volume.</td>
+            <td class="pr">Grille de critères</td></tr>
+          <tr><td class="et">4 · Test</td>
+            <td>Reproduction de trois règles — type, valeurs manquantes, cohérence du prix — dans les deux bibliothèques, sur les données réelles du projet, en environnement vierge.</td>
+            <td class="pr">Notebook de comparaison</td></tr>
+          <tr><td class="et">5 · Décision</td>
+            <td>Pandera retenu. La mesure d'empreinte technique est relevée à la date du test et conservée comme indicateur, non comme critère unique.</td>
+            <td class="pr">Fiche de décision</td></tr>
+          <tr><td class="et">6 · Capitalisation</td>
+            <td>Alerte de version activée sur les deux dépôts comparés, pour être prévenue de tout changement remettant la décision en cause.</td>
+            <td class="pr">Capture d'écran de l'abonnement</td></tr>
+          <tr><td class="et">7 · Impact</td>
+            <td>10 règles écrites dont 3 croisées, 14 anomalies détectées, aucun écart avec l'audit manuel d'origine. Règle de travail adoptée : les contrôles alertent, un humain tranche.</td>
+            <td class="pr">Sortie du contrôle automatisé</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="sources" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Où je regarde</div>
+        <h2 class="sec-title">Mes sources, par domaine puis par type</h2></div>
+      <p class="sec-sub">Chaque source est présentée par ce qu'elle apporte et par la raison pour laquelle je l'ai choisie. La pastille de couleur indique son statut réel dans mon dispositif. La documentation officielle et les textes réglementaires sont les seuls à trancher : les blogs, lettres et réseaux repèrent, ils ne valident pas.</p>
+      <div class="maj">Dernière mise à jour : août 2026</div>
+    </div>
+
+    <div class="legende">
+      <span><i class="dotc d-ok"></i><b>Suivie régulièrement</b> — abonnement ou consultation en place</span>
+      <span><i class="dotc d-po"></i><b>Consultée ponctuellement</b> — quand un projet l'exige</span>
+      <span><i class="dotc d-td"></i><b>Repérée, pas encore suivie</b> — identifiée, dispositif à activer</span>
+    </div>
+
+    <div class="srcs">
+      <div class="sd">
+        <h3>Analyse et qualité des données</h3>
+        <h4>Documentation officielle</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>pandas</b> — la bibliothèque de manipulation de données en Python. Je suis ses notes de version parce qu'elles affectent directement mes notebooks.</span></li>
+          <li><i class="dotc d-ok"></i><span><b>scikit-learn</b> — référence des méthodes statistiques et de détection d'anomalies ; sa documentation explique les limites de chaque méthode, pas seulement son usage.</span></li>
+          <li><i class="dotc d-ok"></i><span><b>Pandera</b> — validation déclarative de données. Retenue au projet 10, je suis ses versions.</span></li>
+          <li><i class="dotc d-ok"></i><span><b>ydata-profiling</b> — produit un diagnostic complet d'un jeu de données en une commande.</span></li>
+        </ul>
+        <h4>Dépôts de code</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>GitHub Releases</b> — les dépôts des bibliothèques que j'utilise. M'avertit quand une nouvelle version peut casser mon code.</span></li>
+        </ul>
+        <h4>Blogs et auteurs</h4>
+        <ul>
+          <li><i class="dotc d-po"></i><span><b>endjin</b> — cabinet de conseil data britannique. Publie des comparatifs d'outils de qualité argumentés et chiffrés, pas des billets d'opinion.</span></li>
+          <li><i class="dotc d-po"></i><span><b>Arthur Turrell</b> — économiste et data scientist, auteur de <em>Coding for Economists</em>. Il tient un panorama des outils de validation de données, écrit pour des praticiens et non pour des développeurs.</span></li>
+        </ul>
+        <h4>Lettres d'information</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>KDnuggets</b> — l'une des plus anciennes publications data. Sert au repérage de sujets, jamais à la décision.</span></li>
+          <li><i class="dotc d-ok"></i><span><b>Data Elixir</b> — sélection hebdomadaire d'articles data, resserrée.</span></li>
+        </ul>
+        <h4>Ouvrages</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>Python for Data Analysis</b> — écrit par Wes McKinney, le créateur de pandas. C'est ma base de référence.</span></li>
+        </ul>
+      </div>
+
+      <div class="sd" style="border-top-color:var(--coral)">
+        <h3>Visualisation et communication</h3>
+        <h4>Normes et référentiels</h4>
+        <ul>
+          <li><i class="dotc d-po"></i><span><b>WCAG 2.2</b> — standard international d'accessibilité du W3C : contraste, alternatives textuelles, ordre de lecture.</span></li>
+          <li><i class="dotc d-po"></i><span><b>RGAA</b> — la déclinaison française, opposable dans le secteur public.</span></li>
+          <li><i class="dotc d-po"></i><span><b>Visual Vocabulary</b> — répertoire du <em>Financial Times</em> qui associe un type de message à un type de graphique. Je le consulte avant de construire, pas après.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Conventions IBCS</b> — normalisation de la présentation du reporting financier : notation des écarts, échelles, code couleur.</span></li>
+        </ul>
+        <h4>Blogs et auteurs</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>Andy Kirk</b> — consultant et formateur en visualisation. Approche méthodique du choix d'un graphique selon l'intention.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Ken Flerlage</b> — expert Tableau, il publie beaucoup sur l'accessibilité des tableaux de bord.</span></li>
+        </ul>
+        <h4>Ouvrages</h4>
+        <ul>
+          <li><i class="dotc d-po"></i><span><b>Storytelling with Data</b> — Cole Nussbaumer Knaflic. La référence sur la restitution orientée décision.</span></li>
+          <li><i class="dotc d-td"></i><span><b>The Big Book of Dashboards</b> — recueil de tableaux de bord réels, commentés cas par cas.</span></li>
+        </ul>
+      </div>
+
+      <div class="sd" style="border-top-color:var(--petrol)">
+        <h3>Business Intelligence et gouvernance</h3>
+        <h4>Documentation officielle</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>Microsoft Learn</b> — documentation Power BI et Power Query. Le plan de publication mensuel annonce les évolutions à l'avance, ce qui permet d'anticiper.</span></li>
+          <li><i class="dotc d-ok"></i><span><b>Aide Tableau</b> — documentation officielle, consultée par projet.</span></li>
+        </ul>
+        <h4>Références techniques</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>DAX Guide — SQLBI</b> — référence exhaustive du langage DAX, tenue par Marco Russo et Alberto Ferrari, les deux auteurs de référence sur la modélisation Power BI.</span></li>
+        </ul>
+        <h4>Blogs et chaînes</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>Chris Webb</b> — spécialiste de la performance des modèles Power BI ; son blog traite précisément des sujets que la documentation n'aborde pas.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Guy in a Cube</b> — chaîne d'Adam Saxton et Patrick LeBlanc : démonstrations courtes et pratiques.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Curbal</b> — chaîne de Ruth Pozuelo Martinez : DAX expliqué pas à pas.</span></li>
+        </ul>
+        <h4>Communautés</h4>
+        <ul>
+          <li><i class="dotc d-po"></i><span><b>Microsoft Fabric Community</b> — forum officiel, utile pour les cas limites déjà rencontrés par d'autres.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Tableau Public</b> — galerie publique, sert de banc d'essai visuel.</span></li>
+        </ul>
+        <h4>Ouvrages</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>The Definitive Guide to DAX</b> — des mêmes auteurs que la référence DAX.</span></li>
+          <li><i class="dotc d-td"></i><span><b>The Data Warehouse Toolkit</b> — Ralph Kimball. Les principes de modélisation dimensionnelle sur lesquels reposent mes modèles.</span></li>
+        </ul>
+      </div>
+
+      <div class="sd" style="border-top-color:var(--vert)">
+        <h3>Automatisation des processus</h3>
+        <h4>Documentation officielle</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>Power Query et passerelle de données</b> — la couche de transformation et le mécanisme de rafraîchissement automatique.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Power Automate</b> — orchestration : approbations, déclenchement, envoi de messages. Sujet du quatrième cas.</span></li>
+          <li><i class="dotc d-po"></i><span><b>SQLite</b> — moteur de base embarqué, utilisé sur plusieurs projets sans infrastructure.</span></li>
+          <li><i class="dotc d-po"></i><span><b>KNIME</b> — orchestration visuelle de flux, comparée puis écartée au projet 8.</span></li>
+        </ul>
+        <h4>Métier et sectoriel</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>DFCG</b> — association française des directeurs financiers et contrôleurs de gestion. Sa revue et son blog Vox-Fi donnent le point de vue métier, pas le point de vue outil.</span></li>
+          <li><i class="dotc d-td"></i><span><b>FP&amp;A Trends Group</b> — publie des études sur les pratiques de planification et de pilotage financier.</span></li>
+        </ul>
+        <h4>Lettres et podcasts</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>Python Weekly</b> — actualité hebdomadaire de l'écosystème Python.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Talk Python To Me</b> — entretiens avec des praticiens ; utile pour comprendre un usage, pas pour trancher.</span></li>
+        </ul>
+      </div>
+
+      <div class="sd" style="border-top-color:var(--violet)">
+        <h3>IA appliquée à la finance</h3>
+        <h4>Documentation éditeur</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>Microsoft Learn — agents pour la finance</b> — décrit le périmètre réel de ces agents : préparation des données, rapprochements, analyses d'écarts, et les points où une validation humaine reste requise.</span></li>
+        </ul>
+        <h4>Cadre réglementaire</h4>
+        <ul>
+          <li><i class="dotc d-po"></i><span><b>RGPD, articles 5 et 9</b> — minimisation, durée de conservation, données sensibles. Je lis le texte, pas son commentaire.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Cadre européen sur l'IA</b> — obligations de transparence et de traçabilité selon le niveau de risque du système.</span></li>
+          <li><i class="dotc d-td"></i><span><b>Autorité de protection des données</b> — ses recommandations encadrent ce qu'on peut transmettre à un système d'IA.</span></li>
+        </ul>
+        <h4>Blogs et recul</h4>
+        <ul>
+          <li><i class="dotc d-td"></i><span><b>Simon Willison</b> — développeur, co-créateur de Django. Il teste et documente les outils d'IA au jour le jour, avec un regard critique et reproductible.</span></li>
+        </ul>
+        <h4>Réseaux — repérage</h4>
+        <ul>
+          <li><i class="dotc d-ok"></i><span><b>Ninon IA</b> — compte de vulgarisation sur les usages de l'IA. Me signale des pratiques émergentes ; ne sert jamais à valider un choix.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="sec-label">Ce que la veille m'apporte</div>
+        <h2 class="sec-title">Des bénéfices concrets dans ma manière de travailler</h2></div>
+      <p class="sec-sub">La veille ne sert pas seulement à se tenir informée. Elle améliore directement la qualité de mes choix, la robustesse des livrables et la capacité de reprise par un tiers.</p>
+    </div>
+    <div class="ap">
+      <div class="apc"><b>Sécuriser les choix d'outils</b><span>Mes décisions reposent sur une comparaison et non sur un effet de mode.</span></div>
+      <div class="apc"><b>Éviter les solutions obsolètes</b><span>Je vérifie que les outils et pratiques restent encore valides.</span></div>
+      <div class="apc"><b>Fiabiliser les méthodes</b><span>Je transforme une découverte en règle réutilisable sur le projet suivant.</span></div>
+      <div class="apc"><b>Réduire les recherches répétitives</b><span>Ce qui a déjà été arbitré n'a pas besoin d'être réexaminé à chaque fois.</span></div>
+      <div class="apc"><b>Documenter les arbitrages</b><span>Je garde autant la trace de ce que j'écarte que de ce que j'adopte.</span></div>
+      <div class="apc"><b>Faciliter la reprise</b><span>Le résultat doit rester compréhensible et exploitable sans moi.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Sonia Graff · Business Data Analyst · Veille métier et technologique · Dernière mise à jour : août 2026</footer>
+
+</body>
+</html>

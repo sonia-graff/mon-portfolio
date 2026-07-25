@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonia Graff · Business Data Analyst</title>
+<style>
+:root{
+  --petrol:#0E5A66; --dark:#0A3D46; --tint:#E8F2F3; --neutral:#F5F7F7;
+  --sep:#DCE6E7; --ink:#3A464C; --grey:#6E7A80; --white:#FFFFFF;
+  --coral1:#E68A63; --coral2:#C25438;
+  --sand:#DCD3C4; --sandink:#5B5343;
+  --data:#3FA0AE; --transfo:#7BA05B; --comm:#C25438;
+  --font:'Corbel','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{font-family:var(--font);background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+/* ---------- NAV ---------- */
+nav{background:var(--dark);height:58px;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.08)}
+nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{color:#fff;font-size:1rem;font-weight:700;letter-spacing:.06em}
+.nav-logo span{color:#8FBEC4;font-weight:400}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:rgba(255,255,255,.72);font-size:.82rem;text-decoration:none;padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav-links a:hover{color:#fff;border-color:#8FBEC4}
+.nav-cta{background:#fff;color:var(--dark);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:3px;text-decoration:none;white-space:nowrap}
+.nav-cta:hover{background:var(--tint)}
+.nav-toggle{display:none}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--dark);color:#fff;padding:64px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1fr 240px;gap:56px;align-items:center}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8FBEC4;margin-bottom:16px}
+.hero h1{font-size:2.5rem;line-height:1.18;font-weight:700;letter-spacing:-.01em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:#8FBEC4;display:block}
+.hero p.lede{font-size:1rem;color:#C3D8DB;max-width:560px;margin-bottom:26px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-size:.85rem;font-weight:700;padding:11px 24px;border-radius:3px;text-decoration:none;transition:background .2s,color .2s}
+.btn-solid{background:#fff;color:var(--dark)}
+.btn-solid:hover{background:var(--tint)}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
+.hstat{padding-right:16px;border-right:1px solid rgba(255,255,255,.12)}
+.hstat:last-child{border-right:0}
+.hstat b{display:block;font-size:1.55rem;font-weight:700;color:#fff;line-height:1.1}
+.hstat span{font-size:.72rem;color:#8FBEC4;display:block;margin-top:5px;line-height:1.35}
+.portrait{width:210px;height:210px;border-radius:50%;background:linear-gradient(150deg,var(--petrol),#1D7C88);display:flex;align-items:center;justify-content:center;font-size:3.2rem;font-weight:700;color:#fff;border:3px solid rgba(255,255,255,.18);margin:0 auto;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* ---------- SECTIONS ---------- */
+section{padding:64px 0}
+.alt{background:var(--neutral)}
+.sec-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:10px}
+.sec-title{font-size:1.65rem;font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:8px}
+.sec-sub{font-size:.93rem;color:var(--grey);max-width:660px;margin-bottom:34px}
+
+/* ---------- SIGNATURE : LA BOUCLE ---------- */
+.loop{background:var(--white);border:1px solid var(--sep);border-radius:4px;padding:30px 28px 24px}
+.loop-steps{display:grid;grid-template-columns:repeat(8,1fr);gap:0}
+.lstep{position:relative;padding:0 10px;text-align:center}
+.lstep:not(:last-child)::after{content:'';position:absolute;top:15px;right:-8px;width:16px;height:1px;background:var(--sep)}
+.lnum{width:30px;height:30px;border-radius:50%;background:var(--tint);color:var(--petrol);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.lstep:last-child .lnum{background:var(--petrol);color:#fff}
+.lstep p{font-size:.76rem;color:var(--ink);line-height:1.35}
+.loop-return{margin-top:22px;padding-top:16px;border-top:1px dashed var(--sep);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.loop-return b{color:var(--petrol);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.loop-return span{font-size:.88rem;color:var(--grey)}
+.loop-claim{margin-top:22px;font-size:.95rem;color:var(--ink);border-left:3px solid var(--petrol);padding-left:16px;max-width:720px}
+
+/* ---------- SOFT SKILLS ---------- */
+.soft{background:linear-gradient(100deg,var(--coral1),var(--coral2));padding:34px 0}
+.soft-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);color:#fff;font-size:.83rem;font-weight:600;padding:8px 20px;border-radius:22px}
+
+/* ---------- CARTES COMPÉTENCES ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ccard{background:#fff;border:1px solid var(--sep);border-top:3px solid var(--petrol);border-radius:3px;padding:22px}
+.ccard h3{font-size:1rem;color:var(--dark);margin-bottom:8px}
+.ccard p{font-size:.85rem;color:var(--grey)}
+.ccard ul{list-style:none;margin-top:12px}
+.ccard li{font-size:.8rem;color:var(--ink);padding-left:14px;position:relative;margin-bottom:5px}
+.ccard li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--petrol);border-radius:50%}
+
+/* ---------- PROJETS ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{background:#fff;border:1px solid var(--sep);border-radius:3px;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.pcard:hover{box-shadow:0 6px 20px rgba(14,90,102,.1);transform:translateY(-2px)}
+.pcard-head{padding:14px 18px 0;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pnum{font-size:.72rem;font-weight:700;color:var(--petrol);letter-spacing:.1em}
+.ptag{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--grey)}
+.pcard-body{padding:8px 18px 18px;flex:1;display:flex;flex-direction:column}
+.pcard h3{font-size:.97rem;color:var(--dark);line-height:1.35;margin-bottom:8px}
+.pcard .sector{font-size:.75rem;color:var(--grey);margin-bottom:10px}
+.pcard .desc{font-size:.82rem;color:var(--ink);margin-bottom:12px}
+.pdata{background:var(--tint);border-radius:3px;padding:8px 11px;font-size:.75rem;color:var(--petrol);font-weight:600;margin-bottom:12px;line-height:1.45}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.chip{font-size:.7rem;padding:3px 9px;border-radius:11px;background:var(--neutral);border:1px solid var(--sep);color:var(--grey)}
+.pcard.pro{border-top:3px solid var(--transfo)}
+.pcard.pro .pnum{color:var(--transfo)}
+.pcard.pro .pdata{background:#F0F5EC;color:#4C6B38}
+.pcard.soon{border-style:dashed;background:var(--neutral)}
+.pcard.soon h3{color:var(--grey)}
+
+/* ---------- PARCOURS ---------- */
+.tl{border-left:2px solid var(--sep);margin-left:8px;padding-left:0}
+.tphase{position:relative;padding:0 0 30px 28px}
+.tphase::before{content:'';position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--petrol)}
+.tphase.c-comm::before{border-color:var(--comm)}
+.tphase.c-fin::before{border-color:var(--petrol)}
+.tphase.c-pause::before{border-color:var(--sand)}
+.tphase.c-tr::before{border-color:var(--transfo)}
+.tphase.c-data::before{border-color:var(--data)}
+.tdate{font-size:.74rem;letter-spacing:.1em;color:var(--grey);text-transform:uppercase}
+.tphase h3{font-size:1.02rem;color:var(--dark);margin:3px 0 6px}
+.tphase p{font-size:.86rem;color:var(--ink);max-width:720px}
+.tphase ul{list-style:none;margin-top:8px}
+.tphase li{font-size:.82rem;color:var(--grey);padding-left:14px;position:relative;margin-bottom:4px}
+.tphase li::before{content:'—';position:absolute;left:0;color:var(--sep)}
+.tphase.c-pause p{color:var(--sandink)}
+
+/* ---------- OUTILS / FORMATION ---------- */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:44px}
+.toolgroup{margin-bottom:20px}
+.toolgroup h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol);margin-bottom:9px}
+.toolchips{display:flex;flex-wrap:wrap;gap:7px}
+.tchip{font-size:.82rem;padding:6px 14px;border-radius:3px;background:var(--tint);color:var(--dark);border:1px solid var(--sep)}
+.frow{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid var(--sep);align-items:baseline}
+.frow:last-child{border-bottom:0}
+.fyear{font-size:.8rem;font-weight:700;color:var(--petrol);min-width:66px;flex-shrink:0}
+.fname{font-size:.86rem;color:var(--ink)}
+.forg{font-size:.76rem;color:var(--grey);display:block}
+.fnext{background:var(--tint);border-left:3px solid var(--petrol);padding:12px 16px;margin-top:14px;border-radius:0 3px 3px 0}
+.fnext b{color:var(--dark);font-size:.86rem}
+.fnext span{display:block;font-size:.78rem;color:var(--grey);margin-top:2px}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--dark);color:#fff;padding:56px 0}
+.contact h2{font-size:1.55rem;margin-bottom:10px}
+.contact p{color:#C3D8DB;font-size:.93rem;max-width:520px;margin-bottom:26px}
+.clinks{display:flex;flex-wrap:wrap;gap:10px}
+.clink{border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.83rem;padding:9px 20px;border-radius:3px;text-decoration:none;transition:background .2s}
+.clink:hover{background:rgba(255,255,255,.12)}
+
+footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:20px;font-size:.76rem}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:32px}
+  .portrait{order:-1;width:140px;height:140px;font-size:2.2rem;margin:0}
+  .hero h1{font-size:2rem}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:16px 0}
+  .hstat:nth-child(2){border-right:0}
+  .grid3,.pgrid{grid-template-columns:repeat(2,1fr)}
+  .loop-steps{grid-template-columns:repeat(4,1fr);gap:20px 0}
+  .lstep:not(:last-child)::after{display:none}
+  .split{grid-template-columns:1fr;gap:34px}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .grid3,.pgrid{grid-template-columns:1fr}
+  .loop-steps{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:1.7rem}
+  section{padding:44px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-links">
+      <a href="#boucle">Ma méthode</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#outils">Outils &amp; formation</a>
+    </div>
+    <a class="nav-cta" href="#contact">Me contacter</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Portfolio · Business Data Analyst</div>
+      <h1>Structurer le complexe,<em>rendre l'information décisionnelle lisible</em></h1>
+      <p class="lede">Dix ans de contrôle de gestion, aujourd'hui au service de la donnée. Je prends une question métier et je la suis jusqu'au bout : cadrage, fiabilisation des données, analyse, tableau de bord, recommandations chiffrées, plan d'action — puis mesure du résultat.</p>
+      <div class="hero-btns">
+        <a class="btn btn-solid" href="#projets">Voir les projets</a>
+        <!-- Remplacer par le lien réel vers le CV PDF -->
+        <a class="btn btn-ghost" href="#" >Télécharger le CV</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>9</b><span>projets data menés de bout en bout</span></div>
+        <div class="hstat"><b>10 ans</b><span>de pilotage financier en PME et groupe</span></div>
+        <div class="hstat"><b>38</b><span>entités consolidées en 3 mois</span></div>
+        <div class="hstat"><b>161 M€</b><span>de portefeuille immobilier valorisé</span></div>
+      </div>
+    </div>
+    <!-- Remplacer le SG par : <img src="photo.jpg" alt="Sonia Graff"> -->
+    <div class="portrait">SG</div>
+  </div>
+</header>
+
+<!-- ================= LA BOUCLE ================= -->
+<section id="boucle">
+  <div class="wrap">
+    <div class="sec-label">Ma méthode</div>
+    <h2 class="sec-title">La boucle fermée</h2>
+    <p class="sec-sub">Une analyse ne vaut que par la décision qu'elle déclenche et par le résultat qu'elle produit. Voilà les huit temps que je tiens sur chaque sujet.</p>
+
+    <div class="loop">
+      <div class="loop-steps">
+        <div class="lstep"><div class="lnum">1</div><p>Cadrer la question métier</p></div>
+        <div class="lstep"><div class="lnum">2</div><p>Monter &amp; fiabiliser les données</p></div>
+        <div class="lstep"><div class="lnum">3</div><p>Analyser</p></div>
+        <div class="lstep"><div class="lnum">4</div><p>Construire le tableau de bord</p></div>
+        <div class="lstep"><div class="lnum">5</div><p>En tirer des insights</p></div>
+        <div class="lstep"><div class="lnum">6</div><p>Recommander et chiffrer</p></div>
+        <div class="lstep"><div class="lnum">7</div><p>Piloter le plan d'action</p></div>
+        <div class="lstep"><div class="lnum">8</div><p>Mesurer ce qui a changé</p></div>
+      </div>
+      <div class="loop-return">
+        <b>↺ Retour à l'étape 1</b>
+        <span>Le résultat mesuré redevient la question suivante.</span>
+      </div>
+      <p class="loop-claim">La plupart des analyses s'arrêtent à l'étape 4. C'est là que se joue ma différence : je vais jusqu'à l'étape 8, et j'assume le chiffre qui en sort.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOFT SKILLS ================= -->
+<div class="soft">
+  <div class="wrap">
+    <div class="soft-inner">
+      <span class="pill">Leadership transverse</span>
+      <span class="pill">Rigueur analytique</span>
+      <span class="pill">Structuration &amp; organisation</span>
+      <span class="pill">Communication claire &amp; impactante</span>
+      <span class="pill">Résolution de problèmes</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COMPÉTENCES ================= -->
+<section id="competences" class="alt">
+  <div class="wrap">
+    <div class="sec-label">Ce que j'apporte</div>
+    <h2 class="sec-title">Trois compétences, une continuité</h2>
+    <p class="sec-sub">Le métier d'abord, la donnée ensuite, la décision toujours. C'est l'ordre dans lequel je travaille.</p>
+    <div class="grid3">
+      <div class="ccard">
+        <h3>Analyse métier</h3>
+        <p>Comprendre le besoin avant de toucher aux données — et savoir dire quelle question mérite d'être posée.</p>
+        <ul>
+          <li>Cadrage avec les opérationnels et la direction</li>
+          <li>Traduction d'un enjeu métier en indicateurs</li>
+          <li>Cartographie de processus et de fonctions</li>
+          <li>Conformité et cadre réglementaire (RGPD, contrôle interne)</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <h3>Data analysis</h3>
+        <p>Fiabiliser avant d'analyser. Un chiffre juste vaut mieux qu'un joli graphique.</p>
+        <ul>
+          <li>SQL, modélisation relationnelle et dimensionnelle</li>
+          <li>Power Query : pipelines rejouables et traçables</li>
+          <li>Python : nettoyage, statistiques, machine learning</li>
+          <li>Power BI &amp; DAX, Tableau, Excel avancé</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <h3>Recommandations &amp; plans d'action</h3>
+        <p>Une restitution qui se termine par une décision, pas par une question ouverte.</p>
+        <ul>
+          <li>Recommandations chiffrées et priorisées</li>
+          <li>Argumentaire à deux niveaux : socle opérationnel, plafond stratégique</li>
+          <li>Restitution en comité de direction, en français et en anglais</li>
+          <li>Pilotage du plan et mesure du résultat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJETS ================= -->
+<section id="projets">
+  <div class="wrap">
+    <div class="sec-label">Réalisations</div>
+    <h2 class="sec-title">Neuf projets data, un projet d'entreprise</h2>
+    <p class="sec-sub">Chaque projet dispose de sa page dédiée : contexte, démarche, livrables, résultats. Les données citées sont celles réellement traitées.</p>
+
+    <div class="pgrid">
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P01</span><span class="ptag">Excel</span></div>
+        <div class="pcard-body">
+          <h3>Construire un cadre de pilotage de la performance sportive</h3>
+          <div class="sector">Sport · Club de basket semi-professionnel</div>
+          <p class="desc">Un club visant la montée en pro sans méthode de pilotage. J'ai bâti un référentiel de performance réutilisable et un cap réaliste plutôt qu'un idéal hors de portée.</p>
+          <div class="pdata">569 joueurs · 30 équipes · 45 variables</div>
+          <div class="chips"><span class="chip">Excel avancé</span><span class="chip">Statistiques</span><span class="chip">Data viz</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P02</span><span class="ptag">SQL</span></div>
+        <div class="pcard-body">
+          <h3>Concevoir et interroger une base de données avec SQL</h3>
+          <div class="sector">Assurance habitation · Base de données</div>
+          <p class="desc">Deux CSV bruts transformés en base SQLite fiable. Dictionnaire, modèle relationnel, contrôles d'intégrité, puis 12 analyses métier prudentes et actionnables.</p>
+          <div class="pdata">69 251 lignes · 22 colonnes · 3 anomalies de clé corrigées</div>
+          <div class="chips"><span class="chip">SQL</span><span class="chip">SQLite</span><span class="chip">Modélisation PK/FK</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P03</span><span class="ptag">RGPD</span></div>
+        <div class="pcard-body">
+          <h3>Anonymiser une base CRM et documenter la conformité RGPD</h3>
+          <div class="sector">Courtage en assurance · Sous mise en demeure CNIL</div>
+          <p class="desc">Une crise de conformité transformée en socle data propre : classification des variables, extraction minimisée, pipeline d'anonymisation documenté et justification prête pour un contrôle.</p>
+          <div class="pdata">28 variables classées · 9 supprimées, 8 conservées, 11 anonymisées · 8 447 lignes</div>
+          <div class="chips"><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">RGPD</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P04</span><span class="ptag">SQL</span></div>
+        <div class="pcard-body">
+          <h3>Centraliser 3 000 retours clients et piloter la satisfaction</h3>
+          <div class="sector">Grande distribution · Satisfaction client</div>
+          <p class="desc">Trois canaux de retours dispersés consolidés en une base unique, puis 17 indicateurs livrés à un service client non technique.</p>
+          <div class="pdata">3 000 retours · 145 produits · 84 magasins · 17 indicateurs</div>
+          <div class="chips"><span class="chip">SQL</span><span class="chip">Schéma en étoile</span><span class="chip">NPS</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P05</span><span class="ptag">Python</span></div>
+        <div class="pcard-body">
+          <h3>Nettoyer, consolider et analyser les données stock &amp; ventes</h3>
+          <div class="sector">Négoce de vins &amp; spiritueux · E-commerce</div>
+          <p class="desc">Trois exports hétérogènes agrégés en une base fiable, 11 types d'anomalies traités, puis des décisions chiffrées sur le pricing et la rentabilité.</p>
+          <div class="pdata">825 produits ERP · 11 anomalies · 167,5 K€ de stock à arbitrer</div>
+          <div class="chips"><span class="chip">Python / pandas</span><span class="chip">Matplotlib</span><span class="chip">Pareto &amp; IQR</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P06</span><span class="ptag">Power BI</span></div>
+        <div class="pcard-body">
+          <h3>Piloter la performance et les risques de 104 projets</h3>
+          <div class="sector">Santé · Soins bucco-dentaires · International</div>
+          <p class="desc">Sept onglets Excel bruts devenus un système de pilotage filtré selon trois niveaux de responsabilité — et un diagnostic de sous-livraison structurelle.</p>
+          <div class="pdata">104 projets · 520 phases · 52 pays · 5,9 M€ de valeur non produite</div>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">RLS</span><span class="chip">Constellation</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P07</span><span class="ptag">Machine learning</span></div>
+        <div class="pcard-body">
+          <h3>Valoriser un portefeuille immobilier parisien et arbitrer une cession</h3>
+          <div class="sector">Immobilier · Société familiale</div>
+          <p class="desc">Un arbitrage objectif entre deux segments défendus par deux directions. Régression linéaire pour valoriser, K-Means pour classifier — et une leçon de méthode assumée sur l'entraînement du modèle.</p>
+          <div class="pdata">26 196 transactions · MAPE 8,95 % · 275 actifs valorisés 161 M€</div>
+          <div class="chips"><span class="chip">scikit-learn</span><span class="chip">Régression</span><span class="chip">K-Means</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P08</span><span class="ptag">Architecture &amp; BI</span></div>
+        <div class="pcard-body">
+          <h3>Industrialiser l'accès aux données et piloter la performance commerciale</h3>
+          <div class="sector">Négoce de vins &amp; spiritueux · Suite du projet 5</div>
+          <p class="desc">Trois architectures comparées avant de trancher pour Power Query, puis un tableau de bord complet : marge, promotions, pricing, ruptures, qualité des données.</p>
+          <div class="pdata">2,44 M€ de CA · 47,75 % de marge · 89,8 % de promotions non rentables</div>
+          <div class="chips"><span class="chip">Power Query</span><span class="chip">Power BI</span><span class="chip">SQLite</span><span class="chip">DAX</span></div>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head"><span class="pnum">P09</span><span class="ptag">Étude stratégique</span></div>
+        <div class="pcard-body">
+          <h3>Recommander le lancement d'un jeu AAA et son écosystème</h3>
+          <div class="sector">Jeu vidéo · Éditeur international</div>
+          <p class="desc">SWOT, PESTEL, analyse de marché, questionnaire terrain et prévisionnel de ventes. Le scénario retenu est une hypothèse de management assumée, pas un résultat mécanique.</p>
+          <div class="pdata">Marché 189 Md$ · 3 jeux de données · 935 K unités / 106 M€ projetés</div>
+          <div class="chips"><span class="chip">SWOT &amp; PESTEL</span><span class="chip">Power BI</span><span class="chip">Prévisionnel</span></div>
+        </div>
+      </article>
+
+      <article class="pcard pro">
+        <div class="pcard-head"><span class="pnum">EN ENTREPRISE</span><span class="ptag">Business Control</span></div>
+        <div class="pcard-body">
+          <h3>GOLDSTONE — structurer et objectiver la fonction Business Control</h3>
+          <div class="sector">Getinge Intervascular · Dispositifs médicaux, ~80 M€ de CA</div>
+          <p class="desc">Une fonction assurée au quotidien mais jamais formalisée. Diagnostic organisationnel complet, mesure de la charge réelle, identification du périmètre non piloté, et un business case porté jusqu'au niveau Groupe.</p>
+          <div class="pdata">9 macro-processus · 32 activités · 3 profils · plan de déploiement sur 4 ans</div>
+          <div class="chips"><span class="chip">SAP FICO</span><span class="chip">Power Query</span><span class="chip">Business case</span></div>
+        </div>
+      </article>
+
+      <article class="pcard soon">
+        <div class="pcard-head"><span class="pnum">P10</span><span class="ptag">À venir</span></div>
+        <div class="pcard-body">
+          <h3>Dixième projet en cours</h3>
+          <div class="sector">Publication prévue à l'issue du projet</div>
+          <p class="desc">Dernier projet du parcours de certification Business Intelligence Analyst.</p>
+          <div class="chips"><span class="chip">En cours</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARCOURS ================= -->
+<section id="parcours" class="alt">
+  <div class="wrap">
+    <div class="sec-label">Parcours</div>
+    <h2 class="sec-title">Un chemin en cinq temps</h2>
+    <p class="sec-sub">De la communication au contrôle de gestion, puis à la data — chaque étape a ajouté une pièce, aucune n'a remplacé la précédente.</p>
+
+    <div class="tl">
+      <div class="tphase c-comm">
+        <div class="tdate">1995 — 2008 · Communication &amp; premiers pas</div>
+        <h3>Apprendre à structurer et à transmettre</h3>
+        <p>Études supérieures en communication à l'Université Saint-Louis (Bruxelles), puis les premières fonctions de gestion en France : facturation, comptabilité, relation client.</p>
+        <ul>
+          <li>Chargée de facturation — Bureau Veritas</li>
+          <li>Missions en comptabilité et accueil</li>
+        </ul>
+      </div>
+
+      <div class="tphase c-fin">
+        <div class="tdate">2008 — 2015 · Contrôle de gestion</div>
+        <h3>Construire des systèmes de pilotage là où il n'y en a pas</h3>
+        <p>Sept années à installer le contrôle de gestion dans des contextes très différents — industrie de services, fonds d'investissement, construction navale.</p>
+        <ul>
+          <li>Alternance en contrôle de gestion — Ortec (Licence pro)</li>
+          <li>Contrôle interne et cartographie des risques COSO — Intervascular</li>
+          <li>Budget consolidé de 38 entités livré en 3 mois — JBIO / Octant Partners</li>
+          <li>Création du contrôle de gestion projets — H2X (iXBlue)</li>
+        </ul>
+      </div>
+
+      <div class="tphase c-pause">
+        <div class="tdate">2016 — 2021 · Parenthèse familiale</div>
+        <h3>Une parenthèse assumée</h3>
+        <p>Un temps consacré à la famille, et un retour avec un cap clair : la data et la business intelligence.</p>
+      </div>
+
+      <div class="tphase c-tr">
+        <div class="tdate">2022 — 2025 · Transformation &amp; Business Control</div>
+        <h3>Digitaliser, fiabiliser, structurer</h3>
+        <p>De la TPE au groupe international : mettre les processus en ordre de marche et donner à la direction de quoi décider.</p>
+        <ul>
+          <li>Digitalisation de la gestion commerciale d'une TPE du bâtiment — PACA Verre Développement</li>
+          <li>Pilotage de 4 périmètres (Ventes, OPEX, FTE, CAPEX) — Intervascular (Getinge)</li>
+          <li>Outil d'analyse de variance des FTE adopté comme référence par la Direction</li>
+          <li>Structuration de la fonction Business Control et 2 projets Groupe de contrôle interne</li>
+        </ul>
+      </div>
+
+      <div class="tphase c-data">
+        <div class="tdate">2025 — 2026 · Data &amp; Business Intelligence</div>
+        <h3>Conjuguer l'expertise métier et la maîtrise technique</h3>
+        <p>Une reconversion structurée, adossée à des projets complets plutôt qu'à des exercices : de l'Excel au machine learning, du SQL à l'architecture de données.</p>
+        <ul>
+          <li>Certification Business Intelligence Analyst — titre RNCP niveau 6, OpenClassrooms</li>
+          <li>Neuf projets menés de bout en bout, un dixième en cours</li>
+          <li>Portfolio interactif publié sur Tableau Public</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTILS & FORMATION ================= -->
+<section id="outils">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="sec-label">Outils</div>
+        <h2 class="sec-title">Ce avec quoi je travaille</h2>
+        <p class="sec-sub">Une chaîne complète, de la donnée brute à la restitution.</p>
+
+        <div class="toolgroup">
+          <h4>Data &amp; Business Intelligence</h4>
+          <div class="toolchips">
+            <span class="tchip">Power BI</span><span class="tchip">DAX</span><span class="tchip">Power Query</span>
+            <span class="tchip">Tableau</span><span class="tchip">SQL</span><span class="tchip">SQLite</span><span class="tchip">Python</span>
+          </div>
+        </div>
+        <div class="toolgroup">
+          <h4>Analyse &amp; finance</h4>
+          <div class="toolchips">
+            <span class="tchip">Excel avancé</span><span class="tchip">SAP FICO</span><span class="tchip">SmartClose</span>
+          </div>
+        </div>
+        <div class="toolgroup">
+          <h4>Restitution &amp; productivité</h4>
+          <div class="toolchips">
+            <span class="tchip">PowerPoint</span><span class="tchip">IA générative &amp; prompting</span>
+          </div>
+        </div>
+        <div class="toolgroup">
+          <h4>Langues</h4>
+          <div class="toolchips">
+            <span class="tchip">Français — langue maternelle</span><span class="tchip">Anglais — professionnel</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-label">Formation</div>
+        <h2 class="sec-title">Diplômes</h2>
+        <p class="sec-sub">Finance, management et data.</p>
+
+        <div class="frow"><span class="fyear">2026</span><span class="fname">Business Intelligence Analyst — titre RNCP niveau 6<span class="forg">OpenClassrooms</span></span></div>
+        <div class="frow"><span class="fyear">2011</span><span class="fname">Master Management Financier &amp; Organisationnel<span class="forg">Kedge Business School, Marseille</span></span></div>
+        <div class="frow"><span class="fyear">2010</span><span class="fname">Master 1 Management des entreprises<span class="forg">Université Aix-Marseille</span></span></div>
+        <div class="frow"><span class="fyear">2009</span><span class="fname">Licence pro Contrôle &amp; Pilotage de la performance<span class="forg">IUT Aix-en-Provence · en alternance chez Ortec</span></span></div>
+        <div class="frow"><span class="fyear">2005</span><span class="fname">BTS Assistant(e) de direction<span class="forg">Université Aix-Marseille</span></span></div>
+        <div class="frow"><span class="fyear">1999</span><span class="fname">Études supérieures en communication<span class="forg">Université Saint-Louis, Bruxelles</span></span></div>
+
+        <div class="fnext">
+          <b>Novembre 2026 — MBA Intelligence Artificielle &amp; Data Innovation</b>
+          <span>De Vinci Executive Education · titre RNCP niveau 7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Parlons de votre sujet</h2>
+    <p>Une question métier à cadrer, un pilotage à fiabiliser, un tableau de bord à faire exister ? Écrivez-moi.</p>
+    <div class="clinks">
+      <!-- Remplacer les # par les liens réels -->
+      <a class="clink" href="#">Email</a>
+      <a class="clink" href="#">LinkedIn</a>
+      <a class="clink" href="#">GitHub</a>
+      <a class="clink" href="#">Tableau Public</a>
+      <a class="clink" href="#">CV (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>Sonia Graff · Business Data Analyst · La Ciotat, Provence-Alpes-Côte d'Azur</footer>
+
+</body>
+</html>

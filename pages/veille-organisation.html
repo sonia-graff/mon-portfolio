@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonia Graff · Mon organisation de veille</title>
+<style>
+:root{
+  --petrol:#0E5A66; --dark:#0A3D46; --tint:#E8F2F3; --neutral:#F5F7F7;
+  --sep:#DCE6E7; --ink:#3A464C; --grey:#6E7A80;
+  --data:#3FA0AE; --coral:#C25438; --vert:#7BA05B; --violet:#6B6FA8; --sable:#B08D57;
+  --font:'Corbel','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--font);background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--petrol);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+nav{background:var(--dark);height:56px;position:sticky;top:0;z-index:60}
+nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{color:#fff;font-size:.96rem;font-weight:700;letter-spacing:.06em}
+.nav-logo span{color:#8FBEC4;font-weight:400}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:rgba(255,255,255,.72);font-size:.78rem;text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.nav-links a:hover,.nav-links a.on{color:#fff;border-color:#8FBEC4}
+
+.hero{background:var(--dark);color:#fff;padding:44px 0 40px}
+.eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#8FBEC4;margin-bottom:12px}
+.hero h1{font-size:1.9rem;line-height:1.24;font-weight:700;margin-bottom:12px;max-width:860px}
+.hero p{font-size:.95rem;color:#C3D8DB;max-width:790px}
+
+section{padding:48px 0}
+.alt{background:var(--neutral)}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:8px}
+.sec-title{font-size:1.45rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.25}
+.sec-sub{font-size:.9rem;color:var(--grey);max-width:830px;margin-bottom:26px}
+
+/* principe : canaux -> tri -> registre */
+.flux{display:grid;grid-template-columns:1.5fr auto 1fr auto 1fr;gap:16px;align-items:center}
+.fbox{background:#fff;border:1px solid var(--sep);border-radius:3px;padding:18px 20px}
+.fbox.mid{border-top:3px solid var(--coral)}
+.fbox.end{border-top:3px solid var(--vert)}
+.fbox h3{font-size:.98rem;color:var(--dark);margin-bottom:4px}
+.fbox .sub{font-size:.75rem;color:var(--grey);margin-bottom:10px}
+.fbox ul{list-style:none}
+.fbox li{font-size:.79rem;padding:3px 0}
+.fbox p{font-size:.81rem;color:var(--grey)}
+.arrow{font-size:1.5rem;color:var(--sep);text-align:center;line-height:1}
+
+/* tableau canaux */
+.tbl{border:1px solid var(--sep);border-radius:3px;overflow-x:auto;background:#fff}
+table.cx{width:100%;min-width:760px;border-collapse:collapse;font-size:.83rem}
+table.cx thead th{background:var(--dark);color:#fff;text-align:left;padding:10px 14px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+table.cx td{padding:11px 14px;border-bottom:1px solid var(--sep);vertical-align:top}
+table.cx tr:last-child td{border-bottom:0}
+table.cx tr:nth-child(even){background:var(--tint)}
+table.cx td:first-child{font-weight:700;color:var(--dark);width:20%}
+table.cx td.fn{color:var(--petrol);font-weight:700;white-space:nowrap}
+
+/* outils et réglages */
+.box{background:#fff;border:1px solid var(--sep);border-radius:3px;padding:18px 22px}
+.tool{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--sep);font-size:.83rem;align-items:flex-start}
+.tool:first-of-type{border-top:0}
+.tool b{min-width:150px;color:var(--petrol);flex:none}
+.tool .tx{flex:1}
+.pill{font-size:.67rem;letter-spacing:.06em;padding:3px 9px;border-radius:10px;white-space:nowrap;flex:none}
+.p-ok{background:#E7F0E2;color:#4A6B33}
+.p-todo{background:var(--tint);color:var(--petrol)}
+.p-no{background:#F5E5E0;color:var(--coral)}
+
+/* règle 5-3-1 */
+.r531{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rc{background:#fff;border:1px solid var(--sep);border-radius:3px;padding:20px;text-align:center}
+.rc .num{font-size:2.6rem;font-weight:700;color:var(--petrol);line-height:1}
+.rc b{display:block;font-size:.95rem;color:var(--dark);margin:8px 0 5px}
+.rc p{font-size:.81rem;color:var(--grey)}
+.r531-note{margin-top:14px;background:var(--tint);border-radius:3px;padding:14px 18px;font-size:.85rem}
+
+/* timeline */
+.tl{position:relative;padding-top:4px}
+.tl::before{content:'';position:absolute;left:12.5%;right:12.5%;top:11px;height:2px;background:var(--sep)}
+.tl-items{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.tl-i{text-align:center;padding:0 14px}
+.tl-d{width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--petrol);display:block;margin:2px auto 14px}
+.tl-i b{display:block;font-size:.9rem;color:var(--dark)}
+.tl-i em{display:block;font-style:normal;font-size:.72rem;letter-spacing:.09em;color:var(--petrol);font-weight:700;margin:2px 0 6px}
+.tl-i p{font-size:.79rem;color:var(--grey)}
+.tl-ev{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.tl-ev div{background:#fff;border:1px solid var(--sep);border-left:3px solid var(--coral);border-radius:3px;padding:12px 16px;font-size:.81rem}
+.tl-ev b{color:var(--coral);display:block;margin-bottom:2px;font-size:.85rem}
+.sec-sub a{color:var(--petrol);font-weight:700}
+.regle{margin-top:20px;background:var(--dark);color:#C3D8DB;border-radius:3px;padding:15px 20px;font-size:.86rem}
+.regle b{color:#fff}
+
+/* registre */
+.stat{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.stat span{font-size:.77rem;border:1px solid var(--sep);background:#fff;border-radius:12px;padding:4px 12px}
+.stat span b{color:var(--petrol)}
+
+/* soustraction */
+.sous{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sc{background:#fff;border:1px solid var(--sep);border-radius:3px;padding:18px 20px}
+.sc h3{font-size:.97rem;color:var(--dark);margin-bottom:9px}
+.sc li{list-style:none;font-size:.82rem;padding:5px 0 5px 15px;position:relative}
+.sc li::before{content:'\2715';position:absolute;left:0;top:5px;color:var(--coral);font-size:.75rem;font-weight:700}
+.sc.plus li::before{content:'\2713';color:var(--vert)}
+.alerte{margin-top:16px;background:var(--dark);color:#C3D8DB;border-radius:3px;padding:16px 20px}
+.alerte b{color:#fff;display:block;font-size:.92rem;margin-bottom:5px}
+.alerte p{font-size:.83rem}
+
+.retour{margin-top:26px;background:var(--tint);border-radius:3px;padding:16px 20px;font-size:.86rem}
+.retour b{color:var(--petrol);display:block;margin-bottom:3px}
+footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:20px;font-size:.75rem}
+
+@media(max-width:980px){
+  .flux{grid-template-columns:1fr}
+  .arrow{transform:rotate(90deg);padding:4px 0}
+  .r531{grid-template-columns:1fr}
+  .sous{grid-template-columns:1fr}
+  .tl::before{display:none}
+  .tl-items{grid-template-columns:repeat(2,1fr);gap:24px 0}
+  .tl-ev{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .tl-items{grid-template-columns:1fr;gap:24px}
+  .hero h1{font-size:1.42rem}
+  section{padding:34px 0}
+  .tool{flex-direction:column;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-links">
+      <a href="Page_Portfolio_Accueil.html">Accueil</a>
+      <a href="Page_Portfolio_Projets.html">Projets</a>
+      <a href="Page_Portfolio_Veille.html">Ma veille</a>
+      <a href="#principe" class="on">Mon organisation</a>
+      <a href="#routine">Le tri hebdomadaire</a>
+      <a href="#registre">Mon registre</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Veille métier et technologique · organisation</div>
+    <h1>Plusieurs canaux d'entrée,<br>un seul point de tri, un seul registre</h1>
+    <p>Un système de veille ne tient pas parce qu'on l'a bien conçu, mais parce qu'il ne déborde jamais. Le principe que j'applique : je n'essaie pas de tout centraliser techniquement — je centralise seulement le tri et la capitalisation.</p>
+  </div>
+</header>
+
+<!-- ============ PRINCIPE ============ -->
+<section id="principe">
+  <div class="wrap">
+    <div class="sec-label">Le principe</div>
+    <h2 class="sec-title">Ne pas créer un système par type de source</h2>
+    <p class="sec-sub">Chaque type de source a son canal naturel — il serait absurde de forcer un podcast dans un agrégateur d'articles. Ce qui doit être unique, ce n'est pas l'outil de collecte : c'est l'endroit où je trie, et celui où j'écris mes décisions.</p>
+
+    <div class="flux">
+      <div class="fbox">
+        <h3>Plusieurs canaux d'entrée</h3>
+        <div class="sub">Chacun dans son outil naturel</div>
+        <ul>
+          <li>Feedly — blogs, sites, flux</li>
+          <li>Dossier de messagerie — lettres d'information</li>
+          <li>GitHub Releases — versions techniques</li>
+          <li>Application de podcast</li>
+          <li>Réseaux professionnels</li>
+          <li>Favoris — documents officiels</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="fbox mid">
+        <h3>Un seul point de tri</h3>
+        <div class="sub">Une fois par semaine</div>
+        <p>J'ouvre successivement mes canaux et je vide chacun : supprimer, rattacher à un sujet, ou transformer en action. Rien ne reste en attente.</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="fbox end">
+        <h3>Un seul registre</h3>
+        <div class="sub">Le classeur de veille</div>
+        <p>Je n'y conserve pas des liens, j'y conserve des décisions. Une ligne n'y entre que si l'information nourrit un sujet précis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CANAUX ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-label">Mes canaux</div>
+    <h2 class="sec-title">Chaque type de source, son outil et sa fonction</h2>
+    <p class="sec-sub">Aucun canal ne sert à valider une décision : les uns repèrent, un seul valide. La documentation officielle et les textes réglementaires sont les seules sources qui tranchent.</p>
+
+    <div class="tbl">
+      <table class="cx">
+        <thead><tr><th>Type de source</th><th>Outil</th><th>Fréquence</th><th>Fonction</th></tr></thead>
+        <tbody>
+          <tr><td>Blogs et sites</td><td>Feedly — 5 dossiers, un par domaine de veille</td><td>Hebdomadaire</td><td class="fn">Repérage</td></tr>
+          <tr><td>Lettres d'information</td><td>Dossier de messagerie « Veille — à trier »</td><td>Hebdomadaire</td><td class="fn">Repérage</td></tr>
+          <tr><td>Versions techniques</td><td>GitHub — Watch › Custom › Releases</td><td>À la publication</td><td class="fn">Surveillance</td></tr>
+          <tr><td>Podcasts</td><td>Application de podcast — liste « à écouter »</td><td>En trajet</td><td class="fn">Compréhension</td></tr>
+          <tr><td>Réseaux professionnels</td><td>Comptes métier et vulgarisation</td><td>Fin de semaine</td><td class="fn">Signaux faibles</td></tr>
+          <tr><td>Documents officiels</td><td>Favoris et registre</td><td>À la demande</td><td class="fn">Validation</td></tr>
+          <tr><td>Décisions et tests</td><td>Classeur de veille</td><td>Mensuelle</td><td class="fn">Capitalisation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÉGLAGES ============ -->
+<section id="reglages">
+  <div class="wrap">
+    <div class="sec-label">Le détail</div>
+    <h2 class="sec-title">Le réglage exact de chaque canal</h2>
+    <p class="sec-sub">Un canal mal réglé produit du bruit, et le bruit finit par tuer la routine. Voici ce que j'ai paramétré, et ce qui reste à faire.</p>
+
+    <div class="box">
+      <div class="tool"><b>Feedly</b><span class="tx">Boîte d'entrée principale pour tout ce qui dispose d'un flux : blogs, sites spécialisés, documentations éditeur, lettres d'information qui publient un flux. <b>Cinq dossiers seulement</b>, un par domaine de veille — jamais un dossier par outil ou par auteur.</span><span class="pill p-todo">À METTRE EN PLACE</span></div>
+      <div class="tool"><b>Dossier de messagerie</b><span class="tx">Une règle sur l'expéditeur et sur les mots « newsletter », « weekly », « digest » : étiquette « Veille — à trier », retiré de la boîte de réception. Lu une fois par semaine, en ne regardant que le titre et le résumé.</span><span class="pill p-ok">EN PLACE</span></div>
+      <div class="tool"><b>GitHub Releases</b><span class="tx">Watch › Custom › <em>Releases</em> uniquement, sur les bibliothèques réellement utilisées — <b>trois à cinq dépôts au maximum</b>. Arrivée dans un dossier « Veille — versions outils », consulté seulement à la publication.</span><span class="pill p-ok">EN PLACE</span></div>
+      <div class="tool"><b>Application de podcast</b><span class="tx"><b>Deux podcasts au maximum</b> : un orienté data ou Python, un orienté IA ou visualisation. Liste « à écouter — veille ». Je n'écoute que les épisodes dont le titre répond à une question concrète, et j'en garde trois lignes : idée retenue, source à vérifier, application éventuelle.</span><span class="pill p-todo">À METTRE EN PLACE</span></div>
+      <div class="tool"><b>Réseaux professionnels</b><span class="tx">Comptes métier et vulgarisation, consultés en fin de semaine, hors du flux de travail. Fonction de signaux faibles : ils n'ont jamais valeur de validation.</span><span class="pill p-ok">EN PLACE</span></div>
+      <div class="tool"><b>Recherche ciblée</b><span class="tx">Déclenchée par une problématique de projet. Documentation primaire d'abord, sources secondaires ensuite. C'est la moitié du dispositif — l'automatisation ne remplace pas la recherche, elle en réduit le coût.</span><span class="pill p-ok">EN PLACE</span></div>
+      <div class="tool"><b>Flux de publication PyPI</b><span class="tx">Méthode connue et documentée, volontairement non activée : pour une bibliothèque disposant d'un dépôt actif, l'alerte de version suffit. Un seul canal par outil suivi.</span><span class="pill p-no">NON ACTIVÉE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÈGLE 5-3-1 ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-label">Ma règle anti-débordement</div>
+    <h2 class="sec-title">Cinq, trois, un</h2>
+    <p class="sec-sub">La question n'est pas de savoir combien de sources existent, mais combien je peux réellement tenir. Cette règle borne le système avant qu'il ne déborde.</p>
+
+    <div class="r531">
+      <div class="rc"><div class="num">5</div><b>domaines de veille</b>
+        <p>Pas un de plus. Chaque nouveau sujet doit se rattacher à l'un d'eux, ou il n'entre pas.</p></div>
+      <div class="rc"><div class="num">3</div><b>sources récurrentes par domaine</b>
+        <p>Une source d'éditeur ou officielle, une source réglementaire ou méthodologique, une source de recul et d'expérimentation.</p></div>
+      <div class="rc"><div class="num">1</div><b>sujet approfondi par mois</b>
+        <p>Un seul. Les autres attendent le mois suivant — c'est ce qui garantit qu'il sera réellement traité.</p></div>
+    </div>
+
+    <div class="r531-note">Cela représente une quinzaine de sources actives. C'est peu, et c'est volontaire : une veille modeste mais réellement tenue vaut mieux qu'une liste impossible à démontrer. Pour mon domaine le plus récent — l'IA et les agents appliqués à la finance — je m'en tiens à trois sources : une documentation d'éditeur, une source réglementaire, et une source de recul.</div>
+  </div>
+</section>
+
+<!-- ============ TRI HEBDOMADAIRE ============ -->
+<section id="routine">
+  <div class="wrap">
+    <div class="sec-label">Le tri hebdomadaire</div>
+    <h2 class="sec-title">Ce que je fais pendant ces vingt à trente minutes</h2>
+    <p class="sec-sub">C'est le seul moment où je consulte ma veille. Le reste de la semaine, ce que je repère est déposé dans son canal sans être traité — sauf si l'information est directement nécessaire à un projet en cours. <a href="Page_Portfolio_Veille.html#methode">Voir ma routine complète et ses quatre temps &rarr;</a></p>
+
+    <div class="tbl">
+      <table class="cx">
+        <thead><tr><th>Ordre</th><th>J'ouvre</th><th>Je cherche</th><th>Je décide</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>L'agrégateur de flux</td><td>Les titres, rien d'autre. Je ne lis pas en entier à ce stade.</td><td class="fn">Supprimer, rattacher, ou agir</td></tr>
+          <tr><td>2</td><td>Le dossier « Veille — à trier »</td><td>Le titre et le résumé des lettres d'information.</td><td class="fn">Supprimer, rattacher, ou agir</td></tr>
+          <tr><td>3</td><td>Les alertes de version</td><td>Ce que la nouvelle version change pour le code existant.</td><td class="fn">Ligne au registre si impact</td></tr>
+          <tr><td>4</td><td>La liste de podcasts</td><td>Les épisodes dont le titre répond à une question concrète.</td><td class="fn">Écouter ou retirer</td></tr>
+          <tr><td>5</td><td>Les réseaux professionnels</td><td>Les signaux faibles : ce dont on parle et que je n'avais pas vu venir.</td><td class="fn">Noter le sujet, vérifier ailleurs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="regle"><b>La règle qui fait tenir le reste :</b> après le tri, aucun contenu ne reste dans une boîte d'entrée. Ce qui n'a pas trouvé de sujet est supprimé — ce n'est pas de la veille, c'est de la lecture.</div>
+  </div>
+</section>
+
+<!-- ============ REGISTRE ============ -->
+<section id="registre" class="alt">
+  <div class="wrap">
+    <div class="sec-label">Ce que je conserve</div>
+    <h2 class="sec-title">Je ne conserve pas des informations, je conserve des décisions</h2>
+    <p class="sec-sub">Avant d'ajouter quoi que ce soit à mon registre, une seule question : est-ce que cette information nourrit un sujet de veille précis ? Si non, elle est supprimée. Si oui, elle devient une ligne — pas un lien de plus dans une bibliothèque.</p>
+
+    <div class="stat">
+      <span><b>À lire</b></span>
+      <span><b>À vérifier</b></span>
+      <span><b>À tester</b></span>
+      <span><b>Retenu</b></span>
+      <span><b>Écarté</b></span>
+      <span><b>Archivé</b></span>
+    </div>
+
+    <div class="tbl">
+      <table class="cx">
+        <thead><tr><th>Domaine</th><th>Sujet</th><th>Question</th><th>Information retenue</th><th>Action</th><th>Statut</th></tr></thead>
+        <tbody>
+          <tr><td>IA et agents</td><td>Agents en finance</td><td>Peuvent-ils commenter les écarts ?</td><td>L'agent prépare l'analyse, mais l'éditeur maintient une validation humaine</td><td>Tester sur données fictives</td><td class="fn">À tester</td></tr>
+          <tr><td>Analyse et qualité</td><td>Contrôles rejouables</td><td>Comment déclarer les règles une seule fois ?</td><td>Deux bibliothèques comparées sur un même jeu, empreinte technique très différente</td><td>Décision écrite, alerte de version activée</td><td class="fn">Retenu</td></tr>
+          <tr><td>Business Intelligence</td><td>Performance du modèle</td><td>Où placer un calcul ?</td><td>Colonne calculée en amont : meilleure compression, chargement allégé</td><td>Appliqué aux deux rapports</td><td class="fn">Retenu</td></tr>
+          <tr><td>Analyse et qualité</td><td>Moteurs de traitement</td><td>Faut-il changer de moteur ?</td><td>Aucun gain déterminant sur le volume et la complexité de mes jeux</td><td>Statu quo, motif écrit</td><td class="fn">Écarté</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="retour"><b>Six statuts, pas davantage</b>Au-delà, on passe plus de temps à qualifier qu'à décider. Le registre tient dans un seul classeur : sources, sujets, décisions.</div>
+  </div>
+</section>
+
+<!-- ============ SOUSTRACTION ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">Tous les trois mois</div>
+    <h2 class="sec-title">Une veille s'améliore aussi par soustraction</h2>
+    <p class="sec-sub">Ajouter une source est facile et gratifiant. En retirer une l'est moins, et c'est pourtant ce qui garde le système utilisable.</p>
+
+    <div class="sous">
+      <div class="sc">
+        <h3>Ce que je retire</h3>
+        <ul>
+          <li>Les lettres d'information jamais ouvertes</li>
+          <li>Les podcasts jamais écoutés</li>
+          <li>Les sources trop générales, qui ne servent aucun sujet</li>
+          <li>Les alertes qui produisent plus de bruit que d'information</li>
+          <li>Les dossiers devenus inutiles</li>
+        </ul>
+      </div>
+      <div class="sc plus">
+        <h3>Ce que je garde</h3>
+        <ul>
+          <li>Les sources qui ont réellement nourri une décision</li>
+          <li>Les documentations officielles et les textes réglementaires</li>
+          <li>Les sujets clos, avec leur fiche : un sujet terminé reste une preuve</li>
+          <li>La liste de ce que j'ai écarté, et pourquoi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alerte">
+      <b>Pourquoi ce nettoyage n'est pas cosmétique : deux outils de ma formation n'existent plus</b>
+      <p>Le cours de veille que j'ai suivi recommande Pocket pour archiver et Revue pour diffuser une lettre d'information. Revue a fermé en janvier 2023, Pocket a été arrêté par son éditeur en juillet 2025. Un dispositif qu'on ne vérifie jamais se périme sans prévenir. J'archive donc dans un outil que je maîtrise et que je peux exporter, et je diffuse par une note d'une page.</p>
+    </div>
+
+    <div class="retour"><b>Le point essentiel</b>Feedly, les lettres d'information, les alertes de version et les podcasts ne sont que des canaux de captation. Mon véritable système de veille tient en une phrase : une question précise, quelques sources, un tri, un test éventuel, une décision inscrite au registre.</div>
+  </div>
+</section>
+
+<footer>Sonia Graff · Business Data Analyst · Organisation de ma veille · Dernière mise à jour : août 2026</footer>
+
+</body>
+</html>
