@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonia Graff · Compétences</title>
+<style>
+:root{--petrol:#0E5A66;--dark:#0A3D46;--tint:#E8F2F3;--neutral:#F5F7F7;--sep:#DCE6E7;
+--ink:#3A464C;--grey:#6E7A80;--coral1:#E68A63;--coral2:#C25438;--sand:#DCD3C4;
+--font:'Corbel','Segoe UI',system-ui,-apple-system,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font);background:#fff;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+nav{background:var(--dark);height:58px;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.08)}
+nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{color:#fff;font-size:1rem;font-weight:700;letter-spacing:.06em}
+.nav-logo span{color:#8FBEC4;font-weight:400}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:rgba(255,255,255,.72);font-size:.82rem;text-decoration:none;padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;border-color:#8FBEC4}
+.nav-cta{background:#fff;color:var(--dark);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:3px;text-decoration:none;white-space:nowrap}
+.hero{background:var(--dark);color:#fff;padding:52px 0 48px}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8FBEC4;margin-bottom:14px}
+.hero h1{font-size:2.15rem;line-height:1.2;font-weight:700;margin-bottom:16px;max-width:820px}
+.hero p{font-size:1rem;color:#C3D8DB;max-width:680px}
+.hero-stats{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0;margin-top:30px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;max-width:820px}
+.hstat{padding:0 18px;border-right:1px solid rgba(255,255,255,.12)}.hstat:first-child{padding-left:0}.hstat:last-child{border-right:0}
+.hstat b{display:block;font-size:1.5rem;font-weight:700;color:#fff;line-height:1.1}
+.hstat span{font-size:.72rem;color:#8FBEC4;display:block;margin-top:5px;line-height:1.35;white-space:nowrap}
+section{padding:56px 0}.alt{background:var(--neutral)}
+.sec-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:10px}
+.sec-title{font-size:1.6rem;font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:8px}
+.sec-sub{font-size:.93rem;color:var(--grey);max-width:720px;margin-bottom:30px}
+/* synthese */
+.syn{display:grid;grid-template-columns:400px 1fr;gap:30px;align-items:center;background:#fff;border:1px solid var(--sep);border-radius:4px;padding:26px 28px}
+.syn-h{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.bars{display:flex;flex-direction:column;gap:13px}
+.bar-row{display:grid;grid-template-columns:1fr 150px 42px;align-items:center;gap:14px}
+.bar-lab{font-size:.85rem;color:var(--ink);font-weight:600}
+.bar-lab span{display:block;font-size:.7rem;color:var(--grey);font-weight:400}
+.bar-track{height:9px;background:var(--tint);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--petrol),#1D7C88);border-radius:5px}
+.bar-val{font-size:.82rem;font-weight:700;color:var(--petrol);text-align:right}
+/* matrix */
+.rbloc{background:#fff;border:1px solid var(--sep);border-radius:4px;margin-bottom:16px;overflow:hidden}
+.rbloc-h{display:flex;align-items:center;gap:12px;background:var(--tint);padding:12px 18px;border-bottom:1px solid var(--sep)}
+.rletter{width:26px;height:26px;flex:none;background:var(--petrol);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.rbloc-h h3{font-size:1rem;color:var(--dark);flex:1}
+.rcount{font-size:.72rem;color:var(--grey);font-weight:700}
+.rrow{display:grid;grid-template-columns:1fr 210px;gap:16px;align-items:center;padding:11px 18px;border-bottom:1px solid var(--sep)}
+.rrow:last-child{border-bottom:0}
+.rc-main{display:flex;gap:10px;align-items:flex-start}
+.rc-main p{font-size:.83rem;color:var(--ink);line-height:1.4}
+.tb{font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap;flex:none;margin-top:1px}
+.tb-h{background:var(--tint);color:var(--petrol)}
+.tb-s{background:#FBEEE4;color:var(--coral2)}
+.tb-c{background:#EAEFE6;color:#5E7A46}
+.rc-proj{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:.68rem;font-weight:700;color:#fff;background:var(--petrol);padding:3px 8px;border-radius:3px;letter-spacing:.02em}
+.rc-link{font-size:.72rem;color:var(--grey);text-align:right;font-weight:600}
+/* soft stars */
+.sstab{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--sep);border-radius:4px;overflow:hidden}
+.sstab thead th{background:var(--dark);color:#fff;text-align:left;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:11px 18px;font-weight:700}
+.sstab td{padding:12px 18px;border-top:1px solid var(--sep);font-size:.86rem;vertical-align:middle}
+.ss-name{color:var(--dark);font-weight:600;width:32%}
+.ss-demo{color:var(--grey)}
+.ss-star{color:#E6A817;font-size:1.05rem;letter-spacing:2px;white-space:nowrap;width:120px}
+.note{margin-top:16px;background:var(--tint);border-left:3px solid var(--petrol);padding:12px 16px;font-size:.84rem;color:var(--dark);border-radius:0 3px 3px 0}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px}
+.legend span{font-size:.76rem;color:var(--grey);display:flex;align-items:center;gap:7px}
+.legend b{width:11px;height:11px;border-radius:3px;display:inline-block}
+footer{background:var(--dark);color:#8FBEC4;text-align:center;font-size:.78rem;padding:26px 0}
+footer a{color:#fff;text-decoration:none;margin:0 9px}
+@media(max-width:820px){.syn{grid-template-columns:1fr}.rrow{grid-template-columns:1fr}.rc-proj{text-align:left}.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.page-nav{background:#fff;height:44px;position:sticky;top:58px;z-index:55;border-bottom:1px solid var(--sep)}
+.page-nav .wrap{height:100%;display:flex;align-items:center;gap:22px;overflow-x:auto}
+.page-nav a{white-space:nowrap;font-size:.78rem;font-weight:600;color:var(--petrol);text-decoration:none;border-bottom:2px solid transparent;padding:3px 0}
+.page-nav a:hover{border-color:var(--petrol)}
+#apercu,#preuve,#posture{scroll-margin-top:112px}
+</style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <div class="wrap">
+    <div class="nav-logo">SONIA GRAFF <span>· Business Controller</span></div>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html" class="on" aria-current="page">Compétences</a>
+      <a href="veille.html">Veille</a>
+      <a href="documents/CV_Sonia_Graff.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </div>
+</nav>
+<nav class="page-nav" aria-label="Sommaire de la page compétences">
+  <div class="wrap">
+    <a href="#apercu">Vue d'ensemble</a>
+    <a href="#preuve">La preuve par les projets</a>
+    <a href="#posture">Savoir-être &amp; posture</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Compétences — référentiels &amp; preuves</div>
+    <h1>Chaque compétence, prouvée par un projet</h1>
+    <p>Je pars du référentiel officiel du Business Intelligence Analyst et je relie chacune de ses compétences au livrable qui la démontre. Aucune n'est déclarée sans preuve : derrière chaque ligne, il y a un projet mené de bout en bout.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b>34</b><span>compétences du référentiel BIA couvertes</span></div>
+      <div class="hstat"><b>10</b><span>projets data comme preuves</span></div>
+      <div class="hstat"><b>9</b><span>blocs de compétences, du SQL à la posture de conseil</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- SYNTHÈSE VISUELLE -->
+<section id="apercu">
+  <div class="wrap">
+    <div class="sec-label">Vue d'ensemble</div>
+    <h2 class="sec-title">Mon profil en un coup d'œil</h2>
+    <p class="sec-sub">Auto-évaluation par famille, sur une échelle de 1 à 5. Mon socle de <strong>business controller</strong> — analyse métier, contrôle de gestion, restitution — s'appuie sur des compétences <strong>data / BI</strong> et de <strong>transformation digitale</strong>.</p>
+    <div class="syn">
+      <div style="text-align:center">
+        <div class="syn-h">Radar des familles</div>
+        <div id="radar"></div>
+      </div>
+      <div>
+        <div class="syn-h">Niveau par famille</div>
+        <div class="bars" id="bars"></div>
+      </div>
+    </div>
+    <p style="font-size:.8rem;color:#8A9499;margin-top:16px;text-align:center;line-height:1.5">
+      Pour ajuster une note : ouvrez ce fichier et modifiez la valeur <code>note</code> voulue en haut du script ci-dessous (échelle&nbsp;1&nbsp;à&nbsp;5). Le radar et les barres se mettent à jour automatiquement.
+    </p>
+  </div>
+</section>
+
+<script>
+/* ==================================================================
+   ▼  MES NOTES — modifiez librement les "note" (de 1 à 5).
+      Pour AJOUTER une famille : copiez une ligne.
+      Pour en RETIRER une : supprimez sa ligne.
+================================================================== */
+const MES_COMPETENCES = [
+  { famille: "Analyse métier", note: 4   },
+  { famille: "CDG & finance",  note: 4   },
+  { famille: "Data & BI",      note: 3   },
+  { famille: "Transformation", note: 3   },
+  { famille: "Restitution",    note: 4   },
+  { famille: "Soft skills",    note: 4   },
+  { famille: "Management",     note: 1   },
+  { famille: "Anglais",        note: 2.5 },
+];
+/* ▲  Rien à modifier en dessous.                                   ▲ */
+
+(function(){
+  const cx=255, cy=205, R=130, MAX=5, RINGS=5;
+  const d = MES_COMPETENCES, n = d.length;
+  const ang = i => -Math.PI/2 + i*2*Math.PI/n;
+  const P = (val,i) => [cx + R*val/MAX*Math.cos(ang(i)), cy + R*val/MAX*Math.sin(ang(i))];
+  const fmt = v => (''+v).replace('.',',');
+
+  let s = '<svg viewBox="0 0 510 430" width="100%" style="max-width:440px" role="img" aria-label="Radar de mes compétences par famille">';
+  for(let k=1;k<=RINGS;k++){
+    const pts = d.map((_,i)=>P(k,i).map(v=>v.toFixed(1)).join(',')).join(' ');
+    s += `<polygon points="${pts}" fill="${k===RINGS?'#F5F9F9':'none'}" stroke="#DCE6E7" stroke-width="1"/>`;
+  }
+  d.forEach((_,i)=>{const[x,y]=P(MAX,i);s+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#DCE6E7" stroke-width="1"/>`;});
+  const dp = d.map((o,i)=>P(o.note,i).map(v=>v.toFixed(1)).join(',')).join(' ');
+  s += `<polygon points="${dp}" fill="rgba(14,90,102,.15)" stroke="#0E5A66" stroke-width="2.2"/>`;
+  d.forEach((o,i)=>{
+    const[x,y]=P(o.note,i);
+    s += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="#0E5A66"/>`;
+    const ox=cx+(R+26)*Math.cos(ang(i)), oy=cy+(R+26)*Math.sin(ang(i));
+    const a = Math.abs(ox-cx)<12 ? 'middle' : (ox>cx?'start':'end');
+    s += `<text x="${ox.toFixed(1)}" y="${(oy-2).toFixed(1)}" text-anchor="${a}" font-size="12.5" font-weight="700" fill="#0A3D46">${o.famille}</text>`;
+    s += `<text x="${ox.toFixed(1)}" y="${(oy+12).toFixed(1)}" text-anchor="${a}" font-size="10.5" fill="#6E7A80">${fmt(o.note)}/5</text>`;
+  });
+  s += '</svg>';
+  document.getElementById('radar').innerHTML = s;
+
+  let b = '';
+  d.forEach(o=>{
+    b += `<div class="bar-row"><div class="bar-lab">${o.famille}</div>`+
+         `<div class="bar-track"><div class="bar-fill" style="width:${(o.note/MAX*100).toFixed(0)}%"></div></div>`+
+         `<div class="bar-val">${fmt(o.note)}/5</div></div>`;
+  });
+  document.getElementById('bars').innerHTML = b;
+})();
+</script>
+
+<!-- MATRICE RÉFÉRENTIEL × PROJETS -->
+<section id="preuve" class="alt">
+  <div class="wrap">
+    <div class="sec-label">La preuve par les projets</div>
+    <h2 class="sec-title">Le référentiel BIA, démontré projet par projet</h2>
+    <p class="sec-sub">Les 34 compétences du référentiel, regroupées en 9 blocs qui suivent le fil d'un projet data — de la base de données à la posture de consultant. Pour chacune, le ou les projets qui en apportent la preuve.</p>
+    <div class="legend">
+      <span><b style="background:var(--tint)"></b> Hard skill — compétence technique</span>
+      <span><b style="background:#FBEEE4"></b> Soft skill — savoir-être</span>
+      <span><b style="background:#EAEFE6"></b> Combinaison — compétence métier</span>
+    </div>
+    <div style="margin-top:22px">
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">A</span><h3>Bases de données & SQL</h3><span class="rcount">3 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Créer une base de données en respect des normes réglementaires et des besoins clients</p></div>
+<div class="rc-proj"><span class="chip">P02</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Gérer une base de données par des requêtes en respect du RGPD</p></div>
+<div class="rc-proj"><span class="chip">P02</span> <span class="chip">P03</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Effectuer des requêtes SQL pour répondre à une problématique métier (RGPD)</p></div>
+<div class="rc-proj"><span class="chip">P02</span> <span class="chip">P04</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">B</span><h3>Collecte & conformité RGPD</h3><span class="rcount">2 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Collecter des données pertinentes en respect des normes et bonnes pratiques</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P03</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Traiter, nettoyer les données et définir les règles de gestion des incohérences (RGPD)</p></div>
+<div class="rc-proj"><span class="chip">P03</span> <span class="chip">P05</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">C</span><h3>Préparation & qualité des données</h3><span class="rcount">4 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Agréger des extractions en définissant les règles de nettoyage pour les structurer</p></div>
+<div class="rc-proj"><span class="chip">P05</span> <span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Pré-traiter des données pour explorer et comprendre leurs caractéristiques</p></div>
+<div class="rc-proj"><span class="chip">P05</span> <span class="chip">P07</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Vérifier la cohérence et la fiabilité des données préparées</p></div>
+<div class="rc-proj"><span class="chip">P05</span> <span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Explorer et analyser des données avec des langages et outils métiers</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P05</span> <span class="chip">P07</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">D</span><h3>Analyse & modélisation statistique</h3><span class="rcount">2 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Effectuer des analyses univariée et multivariée pour interpréter les données</p></div>
+<div class="rc-proj"><span class="chip">P07</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Réaliser des analyses corrélatives ou prédictives pour soutenir les décisions</p></div>
+<div class="rc-proj"><span class="chip">P07</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">E</span><h3>Visualisation & tableaux de bord</h3><span class="rcount">3 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Optimiser une solution de visualisation accessible, adaptée au public et aux données</p></div>
+<div class="rc-proj"><span class="chip">P06</span> <span class="chip">P08</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Concevoir des graphiques adaptés aux types de données (bonnes pratiques d'accessibilité)</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P06</span> <span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Créer un tableau de bord interactif pour rendre la visualisation disponible et accessible</p></div>
+<div class="rc-proj"><span class="chip">P06</span> <span class="chip">P08</span> <span class="chip">P09</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">F</span><h3>Reporting, KPI & recommandations</h3><span class="rcount">7 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Produire un reporting en analysant les visualisations pour faciliter les décisions</p></div>
+<div class="rc-proj"><span class="chip">P06</span> <span class="chip">P07</span> <span class="chip">P08</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-c">Combo</span><p>Proposer un récit des résultats (procédés narratifs, inclusivité et accessibilité)</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P06</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-c">Combo</span><p>Proposer un récit des résultats dynamique pour engager un public</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P06</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Proposer des KPI pour le suivi de la performance de la stratégie BI</p></div>
+<div class="rc-proj"><span class="chip">P06</span> <span class="chip">P08</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Analyser les évolutions du marché pour repérer segments et perspectives de croissance</p></div>
+<div class="rc-proj"><span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Analyser les données d'un segment de clientèle pour accompagner la décision</p></div>
+<div class="rc-proj"><span class="chip">P04</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Élaborer des recommandations business selon besoins, menaces et opportunités</p></div>
+<div class="rc-proj"><span class="chip">P07</span> <span class="chip">P09</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">G</span><h3>Cadrage, cahier des charges & pilotage</h3><span class="rcount">6 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Cadrer les contours d'une demande BI (besoins, contraintes, exigences)</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Proposer des solutions d'extraction, de traitement et de visualisation adaptées</p></div>
+<div class="rc-proj"><span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Définir les règles et processus d'extraction et de normalisation des données</p></div>
+<div class="rc-proj"><span class="chip">P05</span> <span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Identifier les besoins métier en intégrant les contraintes (objectifs et enjeux)</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Formaliser un cahier des charges fonctionnel pour cadrer besoins et solutions</p></div>
+<div class="rc-proj"><span class="chip">P06</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Organiser un projet d'analyse data grâce à des outils de gestion de projet</p></div>
+<div class="rc-proj"><span class="chip">P06</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">H</span><h3>Veille & expérimentation</h3><span class="rcount">2 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Effectuer une veille métier et technologique en testant de nouveaux outils</p></div>
+<div class="rc-proj"><span class="chip">Veille</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Expérimenter de nouvelles méthodes d'analyse via des recherches documentaires sourcées</p></div>
+<div class="rc-proj"><span class="chip">Veille</span> <span class="chip">P11</span></div></div>
+</div>
+<div class="rbloc"><div class="rbloc-h"><span class="rletter">I</span><h3>Accompagnement, documentation & posture</h3><span class="rcount">5 compétences prouvées</span></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-s">Soft</span><p>S'auto-évaluer sur le référentiel de Business Intelligence Analyst</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-s">Soft</span><p>Identifier les soft skills propres au métier de Business Intelligence Analyst</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P09</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-c">Combo</span><p>Accompagner les équipes sur la prise en main des outils</p></div>
+<div class="rc-proj"><span class="chip">Formation</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-h">Hard</span><p>Formaliser les procédures de documentation pour assurer une gestion fiable</p></div>
+<div class="rc-proj"><span class="chip">P05</span> <span class="chip">P08</span></div></div>
+<div class="rrow"><div class="rc-main"><span class="tb tb-c">Combo</span><p>Adapter sa posture de consultant pour challenger les besoins et répondre à la demande</p></div>
+<div class="rc-proj"><span class="chip">P01</span> <span class="chip">P09</span></div></div>
+</div>
+
+    </div>
+    <div class="note"><b>Codes projets —</b> P01 Excel/NBA · P02 SQL/Assurance · P03 RGPD · P04 SQL/Satisfaction · P05 Python/Stock · P06 Power BI · P07 Python/ML · P08 Pipeline BI · P09 Marché. « Veille » et « Formation » renvoient aux livrables de la page Veille et à la vidéo de formation aux outils.</div>
+  </div>
+</section>
+
+<!-- SOFT SKILLS -->
+<section id="posture">
+  <div class="wrap">
+    <div class="sec-label">Savoir-être & posture</div>
+    <h2 class="sec-title">Soft skills et posture de consultant</h2>
+    <p class="sec-sub">Le référentiel le rappelle : au-delà de la technique, le métier repose sur la communication, la rigueur, l'autonomie et la capacité à challenger un besoin. Voici comment ces compétences se traduisent dans mes livrables.</p>
+    <table class="sstab">
+      <thead><tr><th>Compétence</th><th>Démonstration</th><th>Niveau</th></tr></thead>
+      <tbody>
+<tr><td class="ss-name">Rigueur analytique & esprit critique</td><td class="ss-demo">Contrôles qualité P05 · P08 · détection d'anomalies</td><td class="ss-star">★★★★★</td></tr>
+<tr><td class="ss-name">Structuration & organisation</td><td class="ss-demo">Pipelines de bout en bout · diagramme de Gantt P06</td><td class="ss-star">★★★★★</td></tr>
+<tr><td class="ss-name">Communication claire & impactante</td><td class="ss-demo">Soutenances P01 → P09 · vulgarisation pour non-spécialistes</td><td class="ss-star">★★★★★</td></tr>
+<tr><td class="ss-name">Résolution de problèmes</td><td class="ss-demo">Identifier la cause racine · construire une solution actionnable</td><td class="ss-star">★★★★★</td></tr>
+<tr><td class="ss-name">Autonomie & apprentissage</td><td class="ss-demo">Reconversion data conduite en autonomie et documentée</td><td class="ss-star">★★★★★</td></tr>
+<tr><td class="ss-name">Leadership transverse</td><td class="ss-demo">Coordination opérationnels ↔ finance · culture financière</td><td class="ss-star">★★★★☆</td></tr>
+<tr><td class="ss-name">Posture de consultant</td><td class="ss-demo">Challenger les besoins · portfolio et soutenance orale</td><td class="ss-star">★★★★☆</td></tr>
+<tr><td class="ss-name">Pédagogie & vulgarisation</td><td class="ss-demo">Formation aux outils · vidéo Loom de restitution</td><td class="ss-star">★★★★☆</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Sonia Graff · Business Controller
+    &nbsp;·&nbsp;<a href="index.html">Accueil</a><a href="projets.html">Projets</a><a href="veille.html">Veille</a>
+  </div>
+</footer>
+
+</body>
+</html>

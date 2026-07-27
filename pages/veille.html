@@ -103,6 +103,11 @@ section{padding:48px 0}
 .blk>b{display:block;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--grey);margin-bottom:4px}
 .blk p{font-size:.83rem}
 .blk p.q{font-weight:700;color:var(--dark)}
+/* pastilles de couleur par phase (besoin / recherche / décision) */
+.f-body .col .blk>b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:7px;vertical-align:middle}
+.f-body .col:first-child .blk>b::before{background:#C25438}
+.f-body .col.mid .blk>b::before{background:#0E5A66}
+.f-body .col:last-child .blk>b::before{background:#7BA05B}
 .chips{display:flex;flex-wrap:wrap;gap:5px}
 .s{font-size:.76rem;background:#fff;border:1px solid var(--sep);border-radius:2px;padding:4px 9px}
 .auto{background:#fff;border-left:3px solid var(--petrol);padding:9px 12px;font-size:.81rem}
@@ -164,22 +169,36 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   .hero h1{font-size:1.45rem}
   section{padding:36px 0}
 }
+
+.page-nav{background:#fff;height:44px;position:sticky;top:58px;z-index:55;border-bottom:1px solid var(--sep)}
+.page-nav .wrap{height:100%;display:flex;align-items:center;gap:22px;overflow-x:auto}
+.page-nav a{white-space:nowrap;font-size:.78rem;font-weight:600;color:var(--petrol);text-decoration:none;border-bottom:2px solid transparent;padding:3px 0}
+.page-nav a:hover{border-color:var(--petrol)}
+section{scroll-margin-top:112px}
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="main-nav">
   <div class="wrap">
-    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-logo">SONIA GRAFF <span>· Business Controller</span></div>
     <div class="nav-links">
-      <a href="Page_Portfolio_Accueil.html">Accueil</a>
-      <a href="Page_Portfolio_Projets.html">Projets</a>
-      <a href="#methode">Ma méthode</a>
-      <a href="#domaines">Mes domaines</a>
-      <a href="#cas" class="on">Quatre cas</a>
-      <a href="#sources">Mes sources</a>
-      <a href="Page_Portfolio_Veille_Organisation.html">Mon organisation</a>
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="veille.html" class="on" aria-current="page">Veille</a>
+      <a href="documents/CV_Sonia_Graff.pdf" target="_blank" rel="noopener">CV</a>
     </div>
+  </div>
+</nav>
+<nav class="page-nav" aria-label="Sommaire de la veille">
+  <div class="wrap">
+    <a href="#methode">Ma méthode</a>
+    <a href="#rythme">Mon rythme</a>
+    <a href="#domaines">Mes domaines de veille</a>
+    <a href="#cas">4 cas appliqués</a>
+    <a href="#sources">Mes sources</a>
+    <a href="#benefices">Bénéfices</a>
   </div>
 </nav>
 
@@ -188,13 +207,6 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
     <div class="eyebrow">Veille métier et technologique</div>
     <h1>Une veille orientée décision</h1>
     <p>Ma veille porte sur les évolutions de la data, de la Business Intelligence, de l'automatisation et de la fonction finance. Guidée par les problématiques rencontrées dans mes projets, elle me permet d'évaluer de nouvelles pratiques et de les transformer en choix testés, documentés et réutilisables.</p>
-    <div class="steps">
-      <div><b>1 · CADRER</b><span>Un problème devient une question</span></div>
-      <div><b>2 · CAPTER</b><span>Sources primaires, abonnements utiles</span></div>
-      <div><b>3 · QUALIFIER</b><span>Fiabilité, applicabilité, pérennité</span></div>
-      <div><b>4 · EXPÉRIMENTER</b><span>Deux options, un cas réel</span></div>
-      <div><b>5 · CAPITALISER</b><span>Décision écrite, preuves conservées</span></div>
-    </div>
   </div>
 </header>
 
@@ -257,7 +269,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   </div>
 </section>
 
-<section class="alt">
+<section id="rythme" class="alt">
   <div class="wrap">
     <div class="head">
       <div><div class="sec-label">Mon rythme</div>
@@ -280,7 +292,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
       <div class="rt-side">
         <h3>Cinq, trois, un</h3>
         <p>Cinq domaines de veille au maximum. Trois sources récurrentes par domaine. Un seul sujet approfondi par mois. Soit une quinzaine de sources actives — c'est peu, et c'est volontaire : une veille modeste mais réellement tenue vaut mieux qu'une liste impossible à démontrer.</p>
-        <a href="Page_Portfolio_Veille_Organisation.html">Le détail pratique : comment je l'organise &rarr;</a>
+        <a href="veille-organisation.html">Le détail pratique : comment je l'organise &rarr;</a>
       </div>
     </div>
   </div>
@@ -678,7 +690,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   </div>
 </section>
 
-<section>
+<section id="benefices">
   <div class="wrap">
     <div class="head">
       <div><div class="sec-label">Ce que la veille m'apporte</div>
@@ -696,7 +708,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   </div>
 </section>
 
-<footer>Sonia Graff · Business Data Analyst · Veille métier et technologique · Dernière mise à jour : août 2026</footer>
+<footer>Sonia Graff · Business Controller · Veille métier et technologique · Dernière mise à jour : août 2026</footer>
 
 </body>
 </html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonia Graff · Les projets</title>
+<style>
+:root{
+  --petrol:#0E5A66; --dark:#0A3D46; --tint:#E8F2F3; --neutral:#F5F7F7;
+  --sep:#DCE6E7; --ink:#3A464C; --grey:#6E7A80; --white:#FFF;
+  --coral:#C25438; --transfo:#7BA05B;
+  --font:'Corbel','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:var(--font);background:#fff;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--petrol);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 32px}
+
+nav{background:var(--dark);height:58px;position:sticky;top:0;z-index:60}
+nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1120px}
+.nav-logo{color:#fff;font-size:1rem;font-weight:700;letter-spacing:.06em}
+.nav-logo span{color:#8FBEC4;font-weight:400}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:rgba(255,255,255,.72);font-size:.82rem;text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.nav-links a:hover,.nav-links a.on{color:#fff;border-color:#8FBEC4}
+
+.hero{background:var(--dark);color:#fff;padding:54px 0 48px}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8FBEC4;margin-bottom:14px}
+.hero h1{font-size:2.15rem;line-height:1.2;font-weight:700;margin-bottom:16px;max-width:800px}
+.hero p{font-size:1rem;color:#C3D8DB;max-width:720px}
+
+/* sommaire */
+.toc{background:var(--neutral);border-bottom:1px solid var(--sep);padding:22px 0}
+.toc-inner{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-size:.79rem;background:#fff;border:1px solid var(--sep);color:var(--petrol);
+  padding:6px 13px;border-radius:3px;text-decoration:none;font-weight:600}
+.toc a:hover{background:var(--tint);border-color:var(--petrol)}
+
+section.projets{padding:48px 0 60px}
+.lead{font-size:.93rem;color:var(--grey);max-width:760px;margin-bottom:34px}
+.lead b{color:var(--petrol)}
+
+/* ---- BLOC BESOIN ---- */
+.besoin{border:1px solid var(--sep);border-radius:3px;overflow:hidden;margin-bottom:34px;scroll-margin-top:80px}
+.besoin-head{background:var(--petrol);color:#fff;padding:14px 24px;font-size:1.05rem;font-weight:700;line-height:1.35}
+.besoin-head b{color:#A9D5DB}
+.besoin-meta{background:var(--dark);color:#A9D5DB;font-size:.76rem;padding:8px 24px;
+  display:flex;flex-wrap:wrap;gap:6px 22px}
+.besoin-meta span{white-space:nowrap}
+.besoin-meta em{font-style:normal;color:#fff;font-weight:600}
+.blk{padding:18px 24px 20px}
+.blk:nth-of-type(odd){background:var(--tint)}
+.blk:nth-of-type(even){background:#fff}
+.blk h3{font-size:1rem;font-weight:700;color:var(--petrol);margin-bottom:8px;
+  display:flex;align-items:center;gap:10px}
+.mk{width:12px;height:12px;border-radius:2px;flex-shrink:0;display:inline-block}
+.mk-c{background:var(--coral)}.mk-m{background:var(--petrol)}.mk-i{background:var(--transfo)}
+.blk p{font-size:.9rem;color:var(--ink);text-align:left;max-width:880px}
+.blk p+p{margin-top:10px}
+.blk .chiffres{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.blk .chiffres span{font-size:.77rem;font-weight:700;color:var(--petrol);
+  background:#fff;border:1px solid var(--sep);padding:4px 12px;border-radius:13px}
+.blk:nth-of-type(even) .chiffres span{background:var(--neutral)}
+
+footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:22px;font-size:.76rem}
+
+@media(max-width:760px){
+  .nav-links{gap:14px;flex-wrap:wrap;row-gap:6px}
+  .wrap{padding:0 20px}
+  .hero h1{font-size:1.6rem}
+  .besoin-head,.besoin-meta,.blk{padding-left:17px;padding-right:17px}
+  .blk p{text-align:left}
+  .besoin-meta span{white-space:normal}
+  .besoin-meta{gap:4px 0;flex-direction:column}
+}
+
+.blk-star{background:#F7FAFA;border:1px solid #DCE6E7;border-left:4px solid var(--petrol);border-radius:4px;margin:14px 24px 4px;padding:12px 16px}
+.star-h{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol);font-weight:700;margin-bottom:8px}
+.sr{font-size:.9rem;line-height:1.5;color:#2B3A3F;margin:3px 0}
+.sk{display:inline-block;min-width:74px;color:#0A3D46;font-weight:700;margin-right:6px}
+.pfoot{margin:10px 24px 20px;padding-top:12px;border-top:1px solid #E4EBEC}
+.pf{font-size:.88rem;line-height:1.5;color:#2B3A3F;margin:4px 0}
+.pfl{display:inline-block;min-width:96px;color:var(--petrol);font-weight:700;text-transform:uppercase;font-size:.7rem;letter-spacing:.08em;margin-right:8px;vertical-align:baseline}
+.pflink{display:inline-block;margin-top:8px;color:var(--petrol);font-weight:700;font-size:.86rem;text-decoration:none;border-bottom:1px solid #A9D5DB}
+.pflink:hover{border-bottom-color:var(--petrol)}
+.pfsoon{display:inline-block;margin-top:8px;color:#8A9499;font-size:.82rem;font-style:italic}
+@media(max-width:640px){.blk-star,.pfoot{margin-left:17px;margin-right:17px}}
+.besoin{scroll-margin-top:72px}
+.back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--petrol);color:#fff;text-decoration:none;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:80;font-size:1.15rem}
+.back-to-top:hover{background:var(--dark)}
+</style>
+</head>
+<body id="top">
+
+<nav class="main-nav">
+  <div class="wrap">
+    <div class="nav-logo">SONIA GRAFF <span>· Business Controller</span></div>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="projets.html" class="on" aria-current="page">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="veille.html">Veille</a>
+      <a href="documents/CV_Sonia_Graff.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Réalisations</div>
+    <h1>Dix projets, dix problématiques métier</h1>
+    <p>Chaque projet part d'une problématique métier concrète : un contexte à comprendre, une mission à conduire et une décision à éclairer. Les réalisations sont présentées du point de vue du commanditaire, de la méthode mise en œuvre et de la valeur créée pour l'organisation.</p>
+  </div>
+</header>
+
+<div class="toc">
+  <div class="wrap">
+    <div class="toc-inner">
+      <a href="#b1">1 · Pilotage de la performance sportive</a>
+      <a href="#b2">2 · Structuration d'une base d'assurance</a>
+      <a href="#b3">3 · Conformité et anonymisation RGPD</a>
+      <a href="#b4">4 · Pilotage de la satisfaction client</a>
+      <a href="#b5">5 · Fiabilisation des données de stock</a>
+      <a href="#b6">6 · Pilotage d'un portefeuille de projets</a>
+      <a href="#b7">7 · Valorisation d'un portefeuille immobilier</a>
+      <a href="#b8">8 · Pilotage de la performance commerciale</a>
+      <a href="#b9">9 · Stratégie de lancement d'un jeu AAA</a>
+      <a href="#b10">10 · Pilotage d'un projet data</a>
+    </div>
+  </div>
+</div>
+
+<section class="projets">
+  <div class="wrap">
+    <p class="lead">Ces dix projets ont été réalisés dans le cadre de ma certification <b>Data Analyst — spécialisation Business Intelligence</b>. Chacun repose sur une mise en situation professionnelle complète associant un commanditaire, une problématique métier, des données à exploiter et une décision à accompagner. Les volumes et résultats présentés correspondent aux données effectivement traitées.</p>
+
+    <!-- ============ 1 ============ -->
+    <article class="besoin" id="b1">
+      <div class="besoin-head"><b>Projet 1 —</b> Structurer le pilotage de la performance sportive</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Sport, club de basket semi-professionnel</span>
+        <span><em>Données</em> · 569 joueurs, 30 équipes, 45 variables</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Un club de basket semi-professionnel s'est fixé la montée en division professionnelle dans les cinq ans. Il dispose de statistiques de joueurs et d'équipes, mais d'aucune méthode structurée pour les exploiter : les décisions de recrutement, d'entraînement et de style de jeu ne s'appuient pas encore sur un référentiel d'analyse partagé. Aucun repère ne permet de savoir à quel niveau le club se situe réellement, ni quel modèle d'équipe viser sans se fixer un idéal hors de portée.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Fiabiliser les données de la saison de référence, puis construire un cadre d'analyse structuré : six dimensions de performance — scoring, défense, rebonds, création de jeu, contexte, impact global — déclinées sur trois niveaux de lecture, la saison, l'équipe et le joueur. Identifier ensuite une équipe de référence atteignable, fixer les objectifs du club indicateur par indicateur, et traduire l'analyse en recommandations opérationnelles sur trois leviers : recrutement, entraînement, style de jeu.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>Le club disposera d'un cadre de performance réutilisable saison après saison, et d'un cap réaliste : une équipe jeune et bien classée, en construction, plutôt qu'un champion inatteignable. Le club mesure son écart à ce modèle, et les décisions sportives s'appuient sur des repères chiffrés partagés par le staff plutôt que sur l'appréciation de chacun.</p>
+        <div class="chiffres"><span>45 variables analysées</span><span>6 dimensions × 3 niveaux</span><span>3 leviers de recommandation</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Club semi-pro visant la montée en pro en 5 ans, sans méthode de pilotage structurée.</div><div class="sr"><span class="sk">Tâche</span>Construire une méthode d&#x27;analyse claire, réutilisable et orientée décision.</div><div class="sr"><span class="sk">Actions</span>Fiabiliser, comprendre, structurer, enrichir, analyser, recommander.</div><div class="sr"><span class="sk">Résultats</span>Un cadre d&#x27;analyse à 6 dimensions, des livrables et des recommandations concrètes.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC03 · Visualiser des données et interpréter les résultats</div><div class="pf"><span class="pfl">Outils</span>Excel avancé · tableaux croisés dynamiques · fonctions de recherche · visualisation</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 2 ============ -->
+    <article class="besoin" id="b2">
+      <div class="besoin-head"><b>Projet 2 —</b> Structurer une base fiable pour analyser un portefeuille d'assurance habitation</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Assurance habitation</span>
+        <span><em>Données</em> · 2 fichiers CSV, 22 colonnes, 69 251 lignes</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Une compagnie d'assurance habitation veut mieux connaître son marché et son portefeuille. Les données existent, mais dispersées dans des fichiers bruts, non structurés et non reliés entre eux : impossible de rattacher un contrat à sa région ; les analyses géographiques, tarifaires et patrimoniales ne peuvent donc pas être produites de manière fiable. L'analyse est bloquée non par manque de données, mais par absence de structure.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Concevoir une base relationnelle à partir des deux fichiers sources : dictionnaire de données, modèle relationnel, clés primaires et étrangères, contrôles d'intégrité entre la table des contrats et celle des régions. Puis écrire les requêtes répondant aux questions métier sur la géographie, les offres, la tarification et le patrimoine assuré, et traduire les résultats en lectures compréhensibles par la direction.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>L'entreprise disposera d'un socle de données durable plutôt que d'un travail jetable : le modèle reste valable quand les fichiers seront rechargés. Les analyses géographiques deviennent fiables, trois anomalies de clé ayant été détectées et corrigées avant toute exploitation — sans quoi elles auraient faussé silencieusement l'ensemble des résultats.</p>
+        <div class="chiffres"><span>69 251 lignes structurées</span><span>3 anomalies de clé corrigées</span><span>12 analyses métier livrées</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Une compagnie d&#x27;assurance habitation veut connaître son marché, mais ses données sont des fichiers CSV bruts, non reliés et inexploitables.</div><div class="sr"><span class="sk">Tâche</span>Construire une base SQLite fiable, puis l’interroger sur 4 axes métier.</div><div class="sr"><span class="sk">Actions</span>Recenser, typer, modéliser (PK/FK), charger sous SQLite, fiabiliser, requêter, analyser.</div><div class="sr"><span class="sk">Résultats</span>Une base SQLite fiable (2 tables reliées, près de 69 000 lignes) et 12 requêtes validées en 4 axes d&#x27;analyse métier.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC01 · Structurer et gérer la base de données</div><div class="pf"><span class="pfl">Outils</span>SQLite · SQL · modélisation relationnelle · contrôles d'intégrité</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 3 ============ -->
+    <article class="besoin" id="b3">
+      <div class="besoin-head"><b>Projet 3 —</b> Anonymiser une base CRM et documenter sa conformité RGPD</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Courtage en assurance · Conformité RGPD</span>
+        <span><em>Données</em> · 28 variables, 8 447 lignes</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Un courtier en assurance automobile a été mis en demeure par la CNIL pour conservation de données au-delà de la durée autorisée. Son activité commerciale est suspendue. Il doit à la fois lever la sanction et continuer d'exploiter ses données pour piloter son activité — deux exigences qui s'opposent frontalement si l'on n'y met pas de méthode : trop anonymiser rend la base inutilisable, pas assez laisse la sanction ouverte.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Classer chaque variable du fichier client selon son caractère personnel et son risque de réidentification. Extraire le strict nécessaire, puis construire un pipeline d'anonymisation documenté et rejouable, en choisissant la technique adaptée variable par variable — pseudonymisation, généralisation, agrégation géographique — plutôt qu'une règle uniforme. Enfin, rédiger les recommandations et le rapport de conformité destiné à l'autorité de contrôle.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>Le courtier disposera d'une base à la fois exploitable et défendable devant un contrôle, avec une justification réglementaire écrite variable par variable. La chaîne repose sur des outils déjà présents dans l'entreprise, donc reproductible sans investissement. La crise de conformité devient un socle de données propre.</p>
+        <div class="chiffres"><span>28 variables classées</span><span>9 supprimées · 8 conservées · 11 anonymisées</span><span>8 447 lignes exploitables</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Un courtier en assurance auto mis en demeure par la CNIL, activité commerciale suspendue, données conservées trop longtemps.</div><div class="sr"><span class="sk">Tâche</span>Rendre le CRM exploitable sans données personnelles et documenter la conformité pour un auditeur.</div><div class="sr"><span class="sk">Actions</span>Classer 28 variables, extraire en SQL minimale, anonymiser sous Power Query, rédiger recommandations et rapport.</div><div class="sr"><span class="sk">Résultats</span>Un dataset anonymisé de 17 colonnes exploitable sans réidentification, 5 recommandations RGPD priorisées et un rapport prêt pour la CNIL.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC02 · Identifier, collecter et analyser les données</div><div class="pf"><span class="pfl">Outils</span>SQL · Power Query · anonymisation · pseudonymisation · référentiels géographiques</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 4 ============ -->
+    <article class="besoin" id="b4">
+      <div class="besoin-head"><b>Projet 4 —</b> Consolider les retours clients et construire un pilotage de la satisfaction</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Grande distribution · Satisfaction client</span>
+        <span><em>Données</em> · 3 000 retours, 145 produits, 84 magasins</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Une enseigne de grande distribution recueille trois mille retours clients par an via trois canaux distincts — réseaux sociaux, courriel, téléphone. Ces données restent dispersées et inexploitables : aucune vision consolidée de la satisfaction, aucune comparaison possible entre magasins ou entre produits. Le service client, qui en est le premier destinataire, n'a ni les outils ni le profil technique pour aller les chercher.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Structurer les retours dans une base relationnelle unique et enrichir le modèle d'une table magasin absente à l'origine, sans laquelle aucune comparaison géographique n'était possible. Écrire ensuite les requêtes des dix-sept indicateurs attendus sur cinq axes d'analyse, et restituer les résultats sous une forme directement lisible par un interlocuteur non technique.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>Le service client disposera d'indicateurs de pilotage comparables dans le temps et entre les quatre-vingt-quatre magasins, suivis sans intervention technique. La satisfaction cesse d'être un ressenti remonté au cas par cas pour devenir une mesure suivie, sur laquelle des actions peuvent être décidées et évaluées.</p>
+        <div class="chiffres"><span>3 canaux consolidés</span><span>17 indicateurs sur 5 axes</span><span>84 magasins comparables</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>BestMarket collecte 3 000 retours clients sur 3 canaux dispersés, sans vision consolidée de la satisfaction.</div><div class="sr"><span class="sk">Tâche</span>Centraliser les retours en base SQL, enrichir le modèle et livrer 17 indicateurs de satisfaction pour un décideur non technique.</div><div class="sr"><span class="sk">Actions</span>Reformuler le besoin, charger et enrichir la base (table magasin), écrire les requêtes SQL des 17 indicateurs, contrôler la cohérence et restituer.</div><div class="sr"><span class="sk">Résultats</span>Base relationnelle + 17 indicateurs : note 8,05/10, NPS +31, 91 % de reco ; téléphone en tête, Drive à surveiller.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC01 · Structurer et gérer la base de données</div><div class="pf"><span class="pfl">Outils</span>SQLite · SQL · modélisation relationnelle · indicateurs de satisfaction</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 5 ============ -->
+    <article class="besoin" id="b5">
+      <div class="besoin-head"><b>Projet 5 —</b> Fiabiliser les données de stock pour éclairer les décisions du comité de direction</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Négoce de vins &amp; spiritueux · E-commerce</span>
+        <span><em>Données</em> · 3 exports, 825 produits ERP, 11 types d'anomalies</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Un marchand de vins et spiritueux prestigieux pilote son stock avec des outils artisanaux. Les données d'un même mois sont éclatées entre trois exports — l'outil de gestion, le site marchand et une table de liaison — avec des références incohérentes et de nombreuses erreurs. Le comité de direction attend des analyses de chiffre d'affaires, de stock et de marge qu'il est tout simplement impossible de produire en l'état.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Agréger les trois fichiers en une base fiable au moyen d'un traitement Python reproductible. Auditer et corriger les anomalies avec une traçabilité complète — aucune ligne écartée sans justification écrite — et contrôler chaque jointure pour ne perdre aucune référence du catalogue. Produire ensuite les six analyses attendues et les traduire en recommandations chiffrées.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>Le comité de direction disposera d'un socle unique et de décisions chiffrées sur le pricing et la rentabilité, avec cent soixante-sept mille euros de stock élevé ou en surstock identifiés et à arbitrer. Le traitement étant reproductible, la même analyse pourra être relancée le mois suivant sans repartir de zéro.</p>
+        <div class="chiffres"><span>11 types d'anomalies traités</span><span>100 % du catalogue conservé</span><span>167,5 K€ de stock à arbitrer</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Un marchand de vin dont les données stock &amp; ventes sont dispersées dans 3 exports incohérents et peu fiables.</div><div class="sr"><span class="sk">Tâche</span>Consolider et fiabiliser les données en Python, puis livrer les analyses CA, stock, marge et corrélations pour le CODIR.</div><div class="sr"><span class="sk">Actions</span>Explorer, auditer, nettoyer, consolider (jointures), analyser (Pareto, IQR, corrélations), restituer.</div><div class="sr"><span class="sk">Résultats</span>Base consolidée fiable + 6 analyses : CA 144 K€, Pareto 53 %, stock 299 K€ (167,5 K€ à arbitrer), 99 % des produits rentables, plan d&#x27;action ERP.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC02 · Identifier, collecter et analyser les données</div><div class="pf"><span class="pfl">Outils</span>Python · pandas · NumPy · Matplotlib · jointures et contrôles d'intégrité</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 6 ============ -->
+    <article class="besoin" id="b6">
+      <div class="besoin-head"><b>Projet 6 —</b> Concevoir un système de pilotage d'un portefeuille international de projets</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Santé, soins bucco-dentaires · International</span>
+        <span><em>Données</em> · 104 projets, 520 phases, 52 pays (4 régions), 2018-2022</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Une société internationale de soins bucco-dentaires dispose de beaucoup de données sur ses projets informatiques et marketing, mais d'aucun outil de pilotage. Le bureau des projets ne peut ni suivre l'avancement, ni détecter les dérives de coûts et de délais, ni arbitrer entre les régions. Difficulté supplémentaire : un même rapport doit servir trois niveaux de responsabilité qui n'ont pas vocation à voir les mêmes chiffres.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Concevoir un tableau de bord unique alimenté par un pipeline de transformation rejouable, capable de suivre les coûts, les délais et les livrables, et d'alerter sur les dérives. Modéliser les données en constellation, construire les mesures de suivi, puis mettre en place une sécurité au niveau des lignes filtrant automatiquement le contenu selon le profil de l'utilisateur — direction générale, responsable régional, responsable pays.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>Le bureau des projets disposera d'un système de pilotage plutôt que d'un fichier : un rapport unique, trois lectures, aucune duplication à maintenir. Au-delà de l'outil, l'analyse livre un diagnostic que personne n'avait formulé — une sous-livraison structurelle représentant près de six millions d'euros de valeur non produite.</p>
+        <div class="chiffres"><span>7 onglets sources unifiés</span><span>3 niveaux de responsabilité</span><span>5,9 M€ de valeur non produite</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Un PMO qui accumule des données projets sans pouvoir les exploiter : ni suivi, ni alerte, ni arbitrage.</div><div class="sr"><span class="sk">Tâche</span>Livrer un rapport Power BI unique, actualisable, filtré par rôle, avec alertes et axe stratégique.</div><div class="sr"><span class="sk">Actions</span>Cadrer (9 user stories), nettoyer (Power Query), modéliser (constellation), calculer (DAX), sécuriser (RLS), concevoir 17 pages, restituer.</div><div class="sr"><span class="sk">Résultats</span>Rapport 17 pages, RLS 3 rôles, refresh automatisé — et un diagnostic : 39,4 % de projets en alerte, VDI 89,5 %, 5,9 M€ de valeur non produite.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC03 · Visualiser des données et interpréter les résultats</div><div class="pf"><span class="pfl">Outils</span>Power BI · Power Query · DAX · modélisation dimensionnelle · sécurité RLS</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 7 ============ -->
+    <article class="besoin" id="b7">
+      <div class="besoin-head"><b>Projet 7 —</b> Valoriser un portefeuille immobilier et objectiver une décision de cession</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Immobilier · Société familiale parisienne</span>
+        <span><em>Données</em> · 26 196 transactions sur 5 ans, 275 actifs à valoriser</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Une société familiale doit céder une partie de son patrimoine pour dégager de la trésorerie. La décision est bloquée : les deux directeurs — le fils et la fille du dirigeant — défendent chacun leur segment (les locaux commerciaux d'un côté, les appartements de l'autre), et aucun élément objectif ne permet de trancher. La valeur réelle du portefeuille n'est d'ailleurs pas connue, ce qui rend le débat aussi vif qu'infondé.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Analyser cinq années de transactions parisiennes pour identifier les variables qui expliquent réellement le prix, puis construire un modèle de valorisation fiable et l'appliquer aux actifs du portefeuille. Classifier ensuite les biens afin de caractériser chaque segment, et formuler une recommandation de cession assortie d'un calendrier de mise en œuvre. Le tout en assumant les limites du modèle plutôt qu'en les masquant.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>La direction disposera d'une valorisation chiffrée de son patrimoine et d'un arbitrage documenté : conserver et optimiser le segment commercial, moteur de valeur, et céder progressivement le segment résidentiel, levier de liquidité. La décision quitte le terrain du débat familial pour entrer dans celui du chiffre, avec trois horizons de mise en œuvre.</p>
+        <div class="chiffres"><span>161 M€ de portefeuille valorisé</span><span>erreur moyenne ramenée à 8,95 %</span><span>3 horizons de cession</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Une cession bloquée entre les deux directeurs (le fils et la fille du dirigeant), faute d&#x27;analyse objective du portefeuille.</div><div class="sr"><span class="sk">Tâche</span>Valoriser 275 actifs par un modèle prédictif à moins de 10 % d&#x27;erreur et recommander le segment à céder.</div><div class="sr"><span class="sk">Actions</span>Explorer, valider statistiquement les variables, préparer, itérer le modèle, contrôler la robustesse, valoriser, segmenter, recommander.</div><div class="sr"><span class="sk">Résultats</span>Modèle à 8,95 % d&#x27;erreur, 275 actifs valorisés à 161 M€, +20 M€ en faveur du Corporate — recommandation de céder les Particuliers.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC07 · Spécialisation Business Intelligence</div><div class="pf"><span class="pfl">Outils</span>Python · pandas · SciPy · scikit-learn · régression linéaire · K-Means</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 8 ============ -->
+    <article class="besoin" id="b8">
+      <div class="besoin-head"><b>Projet 8 —</b> Industrialiser l'accès aux données et piloter la performance commerciale</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Négoce de vins &amp; spiritueux · Suite du projet 5</span>
+        <span><em>Données</em> · 14 mois d'activité, 2,6 M€ de chiffre d'affaires</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Deuxième mission chez le même client : c'est la restitution du travail précédent au comité de direction qui a convaincu la direction de lancer un véritable projet de mise à disposition des données. Reste à décider comment y accéder — le réflexe naturel, exporter des fichiers et travailler dessus, est rapide, familier et ingérable au bout de trois mois — puis à construire l'outil de pilotage attendu par la direction et les chefs de produits.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Analyser les solutions d'exploitation de la base — requêtes exécutées directement dans la base, extraction pilotée par script, outils de transformation du marché — et préconiser la plus adaptée dans un rapport documenté, sur des critères posés avant l'analyse. Puis importer les données, les modéliser en schéma en étoile et construire un tableau de bord intégrant au minimum trois recommandations business.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>L'entreprise disposera d'une architecture maintenable par quelqu'un d'autre que son auteur, et d'un pilotage complet couvrant les ventes, la marge, les promotions, le pricing, les ruptures et la qualité des données. Le tableau de bord répond aux trois questions que la direction se posait sans pouvoir y répondre — dont le fait que près de neuf promotions sur dix ne sont pas rentables.</p>
+        <div class="chiffres"><span>2,6 M€ de CA (+31,2 % de volume)</span><span>46,9 % de marge (cible 48 %)</span><span>693,8 K€ de stock immobilisé</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Retour chez un client dont j&#x27;avais nettoyé les données : la base est propre, mais aucun pipeline ni tableau de bord au-dessus.</div><div class="sr"><span class="sk">Tâche</span>Arbitrer entre trois architectures de données, puis livrer le tableau de bord multi-pages qui en découle.</div><div class="sr"><span class="sk">Actions</span>Explorer en Python, arbitrer l'architecture, industrialiser le pipeline Power Query, modéliser en étoile, calculer en DAX, restituer et recommander.</div><div class="sr"><span class="sk">Résultats</span>Architecture Power Query argumentée, pipeline 9 étapes, modèle en étoile, 140+ mesures DAX, dashboard 27 pages — et un diagnostic : 9 promos sur 10 détruisent de la marge, 693,8 K€ dorment en stock.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC07 · Spécialisation Business Intelligence</div><div class="pf"><span class="pfl">Outils</span>Power BI · Power Query · DAX · SQLite · modélisation en étoile</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+
+    <!-- ============ 9 ============ -->
+    <article class="besoin" id="b9">
+      <div class="besoin-head"><b>Projet 9 —</b> Définir la stratégie de lancement d'un jeu AAA</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Jeu vidéo · Éditeur international</span>
+        <span><em>Données</em> · 3 jeux de données + sources sectorielles + enquête terrain</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Un éditeur international envisage le lancement d'un jeu à gros budget. La responsable du projet doit présenter une recommandation à sa direction : quel type de jeu, pour quel public, sur quelles plateformes, avec quel modèle économique. Les jeux de données disponibles sont historiques et ne suffisent pas à décrire le marché d'aujourd'hui — le commanditaire le dit lui-même dès le cadrage.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-m"></span>Mission et démarche</h3>
+        <p>Caractériser le marché et ses tendances actuelles comme futures au moyen des cadres d'analyse stratégique attendus, croiser les données de ventes, de consoles et d'engagement des joueurs, puis compléter par des sources sectorielles publiées et un questionnaire terrain — parce que les études décrivent un marché, pas un comportement. Recommander enfin un concept de jeu, son écosystème et une prévision de ventes.</p>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-i"></span>Résultats et impact</h3>
+        <p>La direction disposera d'une recommandation entièrement sourcée : un concept, un couple de plateformes, une fenêtre de lancement, un modèle économique sans mécanique controversée, et un prévisionnel en trois scénarios. Le scénario central est présenté comme une hypothèse de management à l'intérieur d'une fourchette, et non comme le résultat d'un calcul — moins confortable à défendre, et bien plus honnête.</p>
+        <div class="chiffres"><span>marché de 189 Md$ analysé</span><span>enquête terrain menée</span><span>3 scénarios de ventes chiffrés</span></div>
+      </div>
+    <div class="blk-star"><div class="star-h">En bref — STAR</div><div class="sr"><span class="sk">Situation</span>Un premier jeu AAA à lancer — 5 à 7 ans et jusqu&#x27;à 300 M€ engagés — sans licence ni communauté établie.</div><div class="sr"><span class="sk">Tâche</span>Identifier le segment le plus porteur et livrer une recommandation produit chiffrée, du positionnement au prévisionnel.</div><div class="sr"><span class="sk">Actions</span>Cadrer le marché (SWOT, PESTEL, tendances), analyser trois jeux de données sous Power BI, valider par un questionnaire joueurs, construire le persona et chiffrer trois scénarios.</div><div class="sr"><span class="sk">Résultats</span>Recommandation Action-RPG premium PC + PS5, modèle Premium + DLC, et un prévisionnel central à 935 000 unités et 106 M€ sur 2 ans.</div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC07 · Spécialisation Business Intelligence</div><div class="pf"><span class="pfl">Outils</span>Power BI · Power Query · DAX · SWOT / PESTEL · enquête utilisateurs</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div></article>
+    <!-- ============ 10 ============ -->
+    <article class="besoin" id="b10">
+      <div class="besoin-head"><b>Projet 10 —</b> Piloter, documenter et valoriser un projet data</div>
+      <div class="besoin-meta">
+        <span><em>Secteur</em> · Data / valorisation professionnelle</span>
+        <span><em>Statut</em> · Projet en cours — livrables à venir</span>
+      </div>
+      <div class="blk">
+        <h3><span class="mk mk-c"></span>Contexte &amp; problématique</h3>
+        <p>Dernier projet de la certification : réunir l'ensemble de mon travail data dans un portfolio cohérent et démontrable, et conduire la revue critique d'un notebook Python augmenté par l'IA — en gardant la main sur la validation des résultats.</p>
+      </div>
+      <div class="blk"><h3><span class="mk mk-m"></span>Mission et démarche</h3><p>Structurer le projet, organiser les livrables, documenter les choix méthodologiques et contrôler la qualité d'un notebook Python. Examiner les apports de l'intelligence artificielle, vérifier le code, les hypothèses et les résultats, puis sélectionner et présenter les réalisations les plus représentatives du parcours.</p></div><div class="blk"><h3><span class="mk mk-i"></span>Résultats et impact</h3><p>Le projet doit aboutir à un portfolio cohérent, à une documentation réutilisable et à une méthode de validation permettant d'utiliser l'intelligence artificielle comme outil d'assistance, sans déléguer le contrôle de la qualité des analyses.</p><div class="chiffres"><span>10 projets structurés</span><span>portfolio publié</span><span>notebook audité</span><span>méthode de contrôle documentée</span></div></div><div class="pfoot"><div class="pf"><span class="pfl">Compétences</span>Référentiel Data Analyst — BC04 · Piloter un projet data en respectant la réglementation</div><a class="pflink" href="#">Voir la présentation détaillée dans Tableau ↗</a></div>
+    </article>
+
+
+  </div>
+</section>
+
+<footer>Sonia Graff · Business Controller · Les projets · Mise à jour juillet 2026</footer>
+
+<a class="back-to-top" href="#top" aria-label="Revenir en haut de la page">↑</a>
+</body>
+</html>

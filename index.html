@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sonia Graff · Business Data Analyst</title>
+<title>Sonia Graff · Business Controller</title>
 <style>
 :root{
   --petrol:#0E5A66; --dark:#0A3D46; --tint:#E8F2F3; --neutral:#F5F7F7;
@@ -23,8 +23,8 @@ a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
 
 /* ---------- NAV ---------- */
-nav{background:var(--dark);height:58px;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.08)}
-nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.main-nav{background:var(--dark);height:58px;position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.08)}
+.main-nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .nav-logo{color:#fff;font-size:1rem;font-weight:700;letter-spacing:.06em}
 .nav-logo span{color:#8FBEC4;font-weight:400}
 .nav-links{display:flex;gap:26px}
@@ -47,11 +47,12 @@ nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-betw
 .btn-solid:hover{background:var(--tint)}
 .btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,.1)}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
-.hstat{padding-right:16px;border-right:1px solid rgba(255,255,255,.12)}
+.hero-stats{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
+.hstat{padding:0 20px;border-right:1px solid rgba(255,255,255,.12)}
+.hstat:first-child{padding-left:0}
 .hstat:last-child{border-right:0}
 .hstat b{display:block;font-size:1.55rem;font-weight:700;color:#fff;line-height:1.1}
-.hstat span{font-size:.72rem;color:#8FBEC4;display:block;margin-top:5px;line-height:1.35}
+.hstat span{font-size:.71rem;white-space:nowrap;color:#8FBEC4;display:block;margin-top:5px;line-height:1.35}
 .portrait{width:210px;height:210px;border-radius:50%;background:linear-gradient(150deg,var(--petrol),#1D7C88);display:flex;align-items:center;justify-content:center;font-size:3.2rem;font-weight:700;color:#fff;border:3px solid rgba(255,255,255,.18);margin:0 auto;overflow:hidden}
 .portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 
@@ -82,6 +83,9 @@ section{padding:64px 0}
 
 /* ---------- CARTES COMPÉTENCES ---------- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.alt .sec-label{color:#C25438}
+.ccard:nth-child(2){border-top-color:#3FA0AE}
+.ccard:nth-child(3){border-top-color:#C25438}
 .ccard{background:#fff;border:1px solid var(--sep);border-top:3px solid var(--petrol);border-radius:3px;padding:22px}
 .ccard h3{font-size:1rem;color:var(--dark);margin-bottom:8px}
 .ccard p{font-size:.85rem;color:var(--grey)}
@@ -162,7 +166,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   .loop-steps{grid-template-columns:repeat(4,1fr);gap:20px 0}
   .lstep:not(:last-child)::after{display:none}
   .split{grid-template-columns:1fr;gap:34px}
-  .nav-links{display:none}
+  .nav-links{gap:14px;flex-wrap:wrap;row-gap:6px}
 }
 @media(max-width:600px){
   .wrap{padding:0 20px}
@@ -171,46 +175,75 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   .hero h1{font-size:1.7rem}
   section{padding:44px 0}
 }
+
+.nav-logo{text-decoration:none}
+.page-nav{background:#fff;height:44px;position:sticky;top:58px;z-index:55;border-bottom:1px solid var(--sep)}
+.page-nav .wrap{height:100%;display:flex;align-items:center;gap:22px;overflow-x:auto}
+.page-nav a{white-space:nowrap;font-size:.78rem;font-weight:600;color:var(--petrol);text-decoration:none;border-bottom:2px solid transparent;padding:3px 0}
+.page-nav a:hover{border-color:var(--petrol)}
+#boucle,#competences,#projets,#parcours,#outils,#contact{scroll-margin-top:70px}
+.back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--petrol);color:#fff;text-decoration:none;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:80;font-size:1.15rem}
+.back-to-top:hover{background:var(--dark)}
+footer a{color:rgba(255,255,255,.72);text-decoration:none}
+footer a:hover{color:#fff}
+
+.valeur{background:var(--neutral);border-top:1px solid var(--sep);border-bottom:1px solid var(--sep);text-align:center}
+.valeur-lab{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:10px}
+.valeur-text{font-size:1.08rem;line-height:1.6;color:var(--dark);max-width:840px;margin:0 auto 24px}
+.valeur .soft-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.valeur .pill{background:#fff;border:1px solid #C25438;color:#C25438;font-size:.82rem;font-weight:600;padding:7px 18px;border-radius:22px}
+.pcard-links{margin-top:auto;padding-top:12px;display:flex;flex-direction:column;gap:4px}
+.pc-main{color:var(--petrol);font-weight:700;font-size:.85rem;text-decoration:none}
+.pc-main:hover{text-decoration:underline}
+.pc-soon{color:#8A9499;font-size:.76rem;font-style:italic}
+.pos-cta{text-align:center;margin-top:26px}
+.pos-note{font-size:.88rem;color:var(--grey);max-width:620px;margin:0 auto 16px;line-height:1.5}
+.btn-petrol{background:var(--petrol);color:#fff;border:1px solid var(--petrol)}
+.btn-petrol:hover{background:var(--dark);border-color:var(--dark)}
+.parcours-cta{margin-top:30px}
+
+.hero-nav{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+.hero-nav a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#DCEAEC;font-size:.82rem;font-weight:600;text-decoration:none;padding:8px 16px;border-radius:6px;transition:background .2s,border-color .2s}
+.hero-nav a:hover{background:rgba(255,255,255,.16);border-color:#8FBEC4;color:#fff}
+.portrait img{width:100%;height:100%;object-fit:cover}
 </style>
 </head>
-<body>
+<body id="top">
 
-<nav>
+<nav class="main-nav">
   <div class="wrap">
-    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-logo">SONIA GRAFF <span>· Business Controller</span></div>
     <div class="nav-links">
-      <a href="#boucle">Ma méthode</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#outils">Outils &amp; formation</a>
-      <a href="pages/veille.html">Veille</a>
+      <a href="index.html" class="on" aria-current="page">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="veille.html">Veille</a>
+      <a href="documents/CV_Sonia_Graff.pdf" target="_blank" rel="noopener">CV</a>
     </div>
-    <a class="nav-cta" href="#contact">Me contacter</a>
   </div>
 </nav>
-
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Portfolio · Business Data Analyst</div>
+      <div class="eyebrow">Portfolio · Data Analyse</div>
       <h1>Structurer le complexe,<em>rendre l'information décisionnelle lisible</em></h1>
-      <p class="lede">Dix ans de contrôle de gestion, aujourd'hui au service de la donnée. Je prends une question métier et je la suis jusqu'au bout : cadrage, fiabilisation des données, analyse, tableau de bord, recommandations chiffrées, plan d'action — puis mesure du résultat.</p>
-      <div class="hero-btns">
-        <a class="btn btn-solid" href="#projets">Voir les projets</a>
-        <!-- Remplacer par le lien réel vers le CV PDF -->
-        <a class="btn btn-ghost" href="#" >Télécharger le CV</a>
-      </div>
+      <p class="lede">Issue du contrôle de gestion et de la communication, formée à la Data et à la Business Intelligence, je transforme des problématiques métier en diagnostics fiables, en outils de pilotage et en plans d'action concrets.</p>
+      <nav class="hero-nav" aria-label="Sommaire de la page">
+        <a href="#boucle">Ma méthode</a>
+        <a href="#competences">Mon positionnement</a>
+        <a href="#projets">Mes réalisations</a>
+        <a href="#parcours">Mon parcours</a>
+        <a href="#outils">Outils &amp; formation</a>
+      </nav>
       <div class="hero-stats">
-        <div class="hstat"><b>9</b><span>projets data menés de bout en bout</span></div>
-        <div class="hstat"><b>10 ans</b><span>de pilotage financier en PME et groupe</span></div>
-        <div class="hstat"><b>38</b><span>entités consolidées en 3 mois</span></div>
-        <div class="hstat"><b>161 M€</b><span>de portefeuille immobilier valorisé</span></div>
+        <div class="hstat"><b>8 ans</b><span>de contrôle de gestion en PME et groupe</span></div>
+        <div class="hstat"><b>10</b><span>projets data et BI</span></div>
+        <div class="hstat"><b>3</b><span>domaines : communication, contrôle de gestion &amp; BI</span></div>
       </div>
     </div>
-    <!-- Remplacer le SG par : <img src="photo.jpg" alt="Sonia Graff"> -->
-    <div class="portrait">SG</div>
+    
+    <div class="portrait"><img src="sonia_graff.jpg" alt="Sonia Graff"></div>
   </div>
 </header>
 
@@ -218,7 +251,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
 <section id="boucle">
   <div class="wrap">
     <div class="sec-label">Ma méthode</div>
-    <h2 class="sec-title">La boucle fermée</h2>
+    <h2 class="sec-title">De la problématique métier au résultat mesuré</h2>
+    <p class="sec-sub">Une démarche structurée en huit étapes pour transformer les données en décisions, puis vérifier les effets des actions engagées.</p>
     <p class="sec-sub">Une analyse ne vaut que par la décision qu'elle déclenche et par le résultat qu'elle produit. Voilà les huit temps que je tiens sur chaque sujet.</p>
 
     <div class="loop">
@@ -236,70 +270,58 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
         <b>↺ Retour à l'étape 1</b>
         <span>Le résultat mesuré redevient la question suivante.</span>
       </div>
-      <p class="loop-claim">La plupart des analyses s'arrêtent à l'étape 4. C'est là que se joue ma différence : je vais jusqu'à l'étape 8, et j'assume le chiffre qui en sort.</p>
+      <p class="loop-claim">Ma valeur ajoutée se situe dans la continuité de la démarche : relier la fiabilisation des données, l'analyse, la recommandation et le pilotage des actions, sans dissocier la technique du besoin métier.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= SOFT SKILLS ================= -->
-<div class="soft">
-  <div class="wrap">
-    <div class="soft-inner">
-      <span class="pill">Leadership transverse</span>
-      <span class="pill">Rigueur analytique</span>
-      <span class="pill">Structuration &amp; organisation</span>
-      <span class="pill">Communication claire &amp; impactante</span>
-      <span class="pill">Résolution de problèmes</span>
-    </div>
-  </div>
-</div>
 
 <!-- ================= COMPÉTENCES ================= -->
 <section id="competences" class="alt">
   <div class="wrap">
-    <div class="sec-label">Ce que j'apporte</div>
-    <h2 class="sec-title">Trois compétences, une continuité</h2>
-    <p class="sec-sub">Le métier d'abord, la donnée ensuite, la décision toujours. C'est l'ordre dans lequel je travaille.</p>
+    <div class="sec-label">Mon positionnement</div>
+    <h2 class="sec-title">Trois dimensions au service de la décision</h2>
+    <p class="sec-sub">Mon expérience métier, mes compétences data et ma capacité de restitution s'articulent dans une même démarche : comprendre, fiabiliser, analyser et agir.</p>
     <div class="grid3">
       <div class="ccard">
-        <h3>Analyse métier</h3>
-        <p>Comprendre le besoin avant de toucher aux données — et savoir dire quelle question mérite d'être posée.</p>
+        <h3>Compréhension métier et cadrage</h3>
+        <p>Comprendre le fonctionnement de l'organisation, clarifier le besoin et identifier les décisions que les données doivent réellement éclairer.</p>
         <ul>
-          <li>Cadrage avec les opérationnels et la direction</li>
-          <li>Traduction d'un enjeu métier en indicateurs</li>
-          <li>Cartographie de processus et de fonctions</li>
-          <li>Conformité et cadre réglementaire (RGPD, contrôle interne)</li>
+          <li>Analyse des besoins et des enjeux</li>
+          <li>Cadrage avec les directions et les opérationnels</li>
+          <li>Cartographie des processus et des flux</li>
+          <li>Traduction des enjeux en indicateurs de pilotage</li>
         </ul>
       </div>
       <div class="ccard">
-        <h3>Data analysis</h3>
-        <p>Fiabiliser avant d'analyser. Un chiffre juste vaut mieux qu'un joli graphique.</p>
+        <h3>Fiabilisation, analyse et Business Intelligence</h3>
+        <p>Structurer les données, sécuriser leur qualité et construire des analyses ou outils de pilotage adaptés aux utilisateurs.</p>
         <ul>
-          <li>SQL, modélisation relationnelle et dimensionnelle</li>
-          <li>Power Query : pipelines rejouables et traçables</li>
-          <li>Python : nettoyage, statistiques, machine learning</li>
-          <li>Power BI &amp; DAX, Tableau, Excel avancé</li>
+          <li>Modélisation et fiabilisation des données</li>
+          <li>SQL, Power Query, Python et Excel avancé</li>
+          <li>Power BI, DAX et Tableau</li>
+          <li>Analyses statistiques, prédictives et exploratoires</li>
         </ul>
       </div>
       <div class="ccard">
-        <h3>Recommandations &amp; plans d'action</h3>
-        <p>Une restitution qui se termine par une décision, pas par une question ouverte.</p>
+        <h3>Restitution, recommandation et transformation</h3>
+        <p>Transformer les résultats en messages compréhensibles, en recommandations priorisées et en actions pouvant être suivies dans le temps.</p>
         <ul>
+          <li>Reporting et storytelling décisionnel</li>
           <li>Recommandations chiffrées et priorisées</li>
-          <li>Argumentaire à deux niveaux : socle opérationnel, plafond stratégique</li>
-          <li>Restitution en comité de direction, en français et en anglais</li>
-          <li>Pilotage du plan et mesure du résultat</li>
+          <li>Plans d'action et accompagnement des utilisateurs</li>
+          <li>Communication avec les directions et les équipes métier</li>
         </ul>
       </div>
     </div>
-  </div>
+    </div>
 </section>
 
 <!-- ================= PROJETS ================= -->
 <section id="projets">
   <div class="wrap">
     <div class="sec-label">Réalisations</div>
-    <h2 class="sec-title">Neuf projets data, un projet d'entreprise</h2>
+    <h2 class="sec-title">Dix projets data et BI</h2>
     <p class="sec-sub">Chaque projet dispose de sa page dédiée : contexte, démarche, livrables, résultats. Les données citées sont celles réellement traitées.</p>
 
     <div class="pgrid">
@@ -310,8 +332,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Construire un cadre de pilotage de la performance sportive</h3>
           <div class="sector">Sport · Club de basket semi-professionnel</div>
           <p class="desc">Un club visant la montée en pro sans méthode de pilotage. J'ai bâti un référentiel de performance réutilisable et un cap réaliste plutôt qu'un idéal hors de portée.</p>
-          <div class="pdata">569 joueurs · 30 équipes · 45 variables</div>
-          <div class="chips"><span class="chip">Excel avancé</span><span class="chip">Statistiques</span><span class="chip">Data viz</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b1">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -321,8 +343,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Concevoir et interroger une base de données avec SQL</h3>
           <div class="sector">Assurance habitation · Base de données</div>
           <p class="desc">Deux CSV bruts transformés en base SQLite fiable. Dictionnaire, modèle relationnel, contrôles d'intégrité, puis 12 analyses métier prudentes et actionnables.</p>
-          <div class="pdata">69 251 lignes · 22 colonnes · 3 anomalies de clé corrigées</div>
-          <div class="chips"><span class="chip">SQL</span><span class="chip">SQLite</span><span class="chip">Modélisation PK/FK</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b2">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -332,8 +354,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Anonymiser une base CRM et documenter la conformité RGPD</h3>
           <div class="sector">Courtage en assurance · Sous mise en demeure CNIL</div>
           <p class="desc">Une crise de conformité transformée en socle data propre : classification des variables, extraction minimisée, pipeline d'anonymisation documenté et justification prête pour un contrôle.</p>
-          <div class="pdata">28 variables classées · 9 supprimées, 8 conservées, 11 anonymisées · 8 447 lignes</div>
-          <div class="chips"><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">RGPD</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b3">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -343,8 +365,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Centraliser 3 000 retours clients et piloter la satisfaction</h3>
           <div class="sector">Grande distribution · Satisfaction client</div>
           <p class="desc">Trois canaux de retours dispersés consolidés en une base unique, puis 17 indicateurs livrés à un service client non technique.</p>
-          <div class="pdata">3 000 retours · 145 produits · 84 magasins · 17 indicateurs</div>
-          <div class="chips"><span class="chip">SQL</span><span class="chip">Schéma en étoile</span><span class="chip">NPS</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b4">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -354,8 +376,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Nettoyer, consolider et analyser les données stock &amp; ventes</h3>
           <div class="sector">Négoce de vins &amp; spiritueux · E-commerce</div>
           <p class="desc">Trois exports hétérogènes agrégés en une base fiable, 11 types d'anomalies traités, puis des décisions chiffrées sur le pricing et la rentabilité.</p>
-          <div class="pdata">825 produits ERP · 11 anomalies · 167,5 K€ de stock à arbitrer</div>
-          <div class="chips"><span class="chip">Python / pandas</span><span class="chip">Matplotlib</span><span class="chip">Pareto &amp; IQR</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b5">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -365,8 +387,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Piloter la performance et les risques de 104 projets</h3>
           <div class="sector">Santé · Soins bucco-dentaires · International</div>
           <p class="desc">Sept onglets Excel bruts devenus un système de pilotage filtré selon trois niveaux de responsabilité — et un diagnostic de sous-livraison structurelle.</p>
-          <div class="pdata">104 projets · 520 phases · 52 pays · 5,9 M€ de valeur non produite</div>
-          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">RLS</span><span class="chip">Constellation</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b6">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -376,8 +398,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Valoriser un portefeuille immobilier parisien et arbitrer une cession</h3>
           <div class="sector">Immobilier · Société familiale</div>
           <p class="desc">Un arbitrage objectif entre deux segments défendus par deux directions. Régression linéaire pour valoriser, K-Means pour classifier — et une leçon de méthode assumée sur l'entraînement du modèle.</p>
-          <div class="pdata">26 196 transactions · MAPE 8,95 % · 275 actifs valorisés 161 M€</div>
-          <div class="chips"><span class="chip">scikit-learn</span><span class="chip">Régression</span><span class="chip">K-Means</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b7">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -387,8 +409,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Industrialiser l'accès aux données et piloter la performance commerciale</h3>
           <div class="sector">Négoce de vins &amp; spiritueux · Suite du projet 5</div>
           <p class="desc">Trois architectures comparées avant de trancher pour Power Query, puis un tableau de bord complet : marge, promotions, pricing, ruptures, qualité des données.</p>
-          <div class="pdata">2,44 M€ de CA · 47,75 % de marge · 89,8 % de promotions non rentables</div>
-          <div class="chips"><span class="chip">Power Query</span><span class="chip">Power BI</span><span class="chip">SQLite</span><span class="chip">DAX</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b8">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -398,19 +420,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Recommander le lancement d'un jeu AAA et son écosystème</h3>
           <div class="sector">Jeu vidéo · Éditeur international</div>
           <p class="desc">SWOT, PESTEL, analyse de marché, questionnaire terrain et prévisionnel de ventes. Le scénario retenu est une hypothèse de management assumée, pas un résultat mécanique.</p>
-          <div class="pdata">Marché 189 Md$ · 3 jeux de données · 935 K unités / 106 M€ projetés</div>
-          <div class="chips"><span class="chip">SWOT &amp; PESTEL</span><span class="chip">Power BI</span><span class="chip">Prévisionnel</span></div>
-        </div>
-      </article>
-
-      <article class="pcard pro">
-        <div class="pcard-head"><span class="pnum">EN ENTREPRISE</span><span class="ptag">Business Control</span></div>
-        <div class="pcard-body">
-          <h3>GOLDSTONE — structurer et objectiver la fonction Business Control</h3>
-          <div class="sector">Getinge Intervascular · Dispositifs médicaux, ~80 M€ de CA</div>
-          <p class="desc">Une fonction assurée au quotidien mais jamais formalisée. Diagnostic organisationnel complet, mesure de la charge réelle, identification du périmètre non piloté, et un business case porté jusqu'au niveau Groupe.</p>
-          <div class="pdata">9 macro-processus · 32 activités · 3 profils · plan de déploiement sur 4 ans</div>
-          <div class="chips"><span class="chip">SAP FICO</span><span class="chip">Power Query</span><span class="chip">Business case</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b9">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -420,7 +431,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
           <h3>Dixième projet en cours</h3>
           <div class="sector">Publication prévue à l'issue du projet</div>
           <p class="desc">Dernier projet du parcours de certification Business Intelligence Analyst.</p>
-          <div class="chips"><span class="chip">En cours</span></div>
+        
+          <div class="pcard-links"><a class="pc-main" href="projets.html#b10">Découvrir le projet →</a></div>
         </div>
       </article>
 
@@ -482,11 +494,12 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
         <p>Une reconversion structurée, adossée à des projets complets plutôt qu'à des exercices : de l'Excel au machine learning, du SQL à l'architecture de données.</p>
         <ul>
           <li>Certification Business Intelligence Analyst — titre RNCP niveau 6, OpenClassrooms</li>
-          <li>Neuf projets menés de bout en bout, un dixième en cours</li>
+          <li>Dix projets menés de bout en bout, dont un transversal en cours</li>
           <li>Portfolio interactif publié sur Tableau Public</li>
         </ul>
       </div>
     </div>
+    <div class="parcours-cta"><a class="btn btn-petrol" href="#">Voir mon parcours détaillé sur Tableau Public →</a></div>
   </div>
 </section>
 
@@ -539,7 +552,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
         <div class="frow"><span class="fyear">1999</span><span class="fname">Études supérieures en communication<span class="forg">Université Saint-Louis, Bruxelles</span></span></div>
 
         <div class="fnext">
-          <b>Novembre 2026 — MBA Intelligence Artificielle &amp; Data Innovation</b>
+          <b>En projet — MBA Intelligence Artificielle &amp; Data Innovation</b>
           <span>De Vinci Executive Education · titre RNCP niveau 7</span>
         </div>
       </div>
@@ -563,7 +576,8 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   </div>
 </section>
 
-<footer>Sonia Graff · Business Data Analyst · La Ciotat, Provence-Alpes-Côte d'Azur</footer>
+<footer>Sonia Graff · Business Controller · La Ciotat<br><a href="index.html">Accueil</a> · <a href="competences.html">Compétences</a> · <a href="projets.html">Projets</a> · <a href="#parcours">Parcours</a> · <a href="veille.html">Veille</a> · <a href="documents/CV_Sonia_Graff.pdf">CV</a></footer>
 
+<a class="back-to-top" href="#top" aria-label="Revenir en haut de la page">↑</a>
 </body>
 </html>

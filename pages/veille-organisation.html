@@ -132,21 +132,36 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   section{padding:34px 0}
   .tool{flex-direction:column;gap:4px}
 }
+
+.page-nav{background:#fff;height:44px;position:sticky;top:58px;z-index:55;border-bottom:1px solid var(--sep)}
+.page-nav .wrap{height:100%;display:flex;align-items:center;gap:22px;overflow-x:auto}
+.page-nav a{white-space:nowrap;font-size:.78rem;font-weight:600;color:var(--petrol);text-decoration:none;border-bottom:2px solid transparent;padding:3px 0}
+.page-nav a:hover{border-color:var(--petrol)}
+section{scroll-margin-top:112px}
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="main-nav">
   <div class="wrap">
-    <div class="nav-logo">SONIA GRAFF <span>· Business Data Analyst</span></div>
+    <div class="nav-logo">SONIA GRAFF <span>· Business Controller</span></div>
     <div class="nav-links">
-      <a href="Page_Portfolio_Accueil.html">Accueil</a>
-      <a href="Page_Portfolio_Projets.html">Projets</a>
-      <a href="Page_Portfolio_Veille.html">Ma veille</a>
-      <a href="#principe" class="on">Mon organisation</a>
-      <a href="#routine">Le tri hebdomadaire</a>
-      <a href="#registre">Mon registre</a>
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="veille.html" class="on" aria-current="page">Veille</a>
+      <a href="documents/CV_Sonia_Graff.pdf" target="_blank" rel="noopener">CV</a>
     </div>
+  </div>
+</nav>
+<nav class="page-nav" aria-label="Sommaire de l'organisation">
+  <div class="wrap">
+    <a href="veille.html">← Ma veille</a>
+    <a href="#principe">Le principe d'organisation</a>
+    <a href="#canaux">Mes canaux en détail</a>
+    <a href="#regle">La règle</a>
+    <a href="#routine">Le tri hebdomadaire</a>
+    <a href="#trimestriel">Tous les 3 mois</a>
   </div>
 </nav>
 
@@ -195,7 +210,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
 </section>
 
 <!-- ============ CANAUX ============ -->
-<section class="alt">
+<section id="canaux" class="alt">
   <div class="wrap">
     <div class="sec-label">Mes canaux</div>
     <h2 class="sec-title">Chaque type de source, son outil et sa fonction</h2>
@@ -238,7 +253,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
 </section>
 
 <!-- ============ RÈGLE 5-3-1 ============ -->
-<section class="alt">
+<section id="regle" class="alt">
   <div class="wrap">
     <div class="sec-label">Ma règle anti-débordement</div>
     <h2 class="sec-title">Cinq, trois, un</h2>
@@ -262,7 +277,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   <div class="wrap">
     <div class="sec-label">Le tri hebdomadaire</div>
     <h2 class="sec-title">Ce que je fais pendant ces vingt à trente minutes</h2>
-    <p class="sec-sub">C'est le seul moment où je consulte ma veille. Le reste de la semaine, ce que je repère est déposé dans son canal sans être traité — sauf si l'information est directement nécessaire à un projet en cours. <a href="Page_Portfolio_Veille.html#methode">Voir ma routine complète et ses quatre temps &rarr;</a></p>
+    <p class="sec-sub">C'est le seul moment où je consulte ma veille. Le reste de la semaine, ce que je repère est déposé dans son canal sans être traité — sauf si l'information est directement nécessaire à un projet en cours. <a href="veille.html#methode">Voir ma routine complète et ses quatre temps &rarr;</a></p>
 
     <div class="tbl">
       <table class="cx">
@@ -313,7 +328,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
 </section>
 
 <!-- ============ SOUSTRACTION ============ -->
-<section>
+<section id="trimestriel">
   <div class="wrap">
     <div class="sec-label">Tous les trois mois</div>
     <h2 class="sec-title">Une veille s'améliore aussi par soustraction</h2>
@@ -350,7 +365,7 @@ footer{background:#072F36;color:rgba(255,255,255,.45);text-align:center;padding:
   </div>
 </section>
 
-<footer>Sonia Graff · Business Data Analyst · Organisation de ma veille · Dernière mise à jour : août 2026</footer>
+<footer>Sonia Graff · Business Controller · Organisation de ma veille · Dernière mise à jour : août 2026</footer>
 
 </body>
 </html>
